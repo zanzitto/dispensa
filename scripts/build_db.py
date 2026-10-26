@@ -108,7 +108,7 @@ CONNECTORS = {"di", "d", "del", "dei", "della", "delle", "dello", "degli", "dell
 ARTICLES = {"il", "lo", "la", "le", "i", "gli", "l", "un", "uno", "una"}
 CUT_WORDS = {"per", "da", "con", "in", "gia", "circa", "ben", "tipo", "come", "tagliato",
              "tagliata", "tagliati", "tagliate", "sopra", "sotto", "se", "senza", "oppure"}
-CUT_AFTER_A = {"dadini", "fette", "pezzi", "pezzetti", "cubetti", "tocchetti", "rondelle",
+CUT_AFTER_A = {"terra", "dadini", "fette", "pezzi", "pezzetti", "cubetti", "tocchetti", "rondelle",
                "listarelle", "striscioline", "julienne", "temperatura", "piacere", "seconda",
                "scelta", "gusto", "persona", "testa"}
 MODIFIERS = {
@@ -131,12 +131,23 @@ MODIFIERS = {
     "medio", "media", "medi", "medie", "grande", "grandi", "bello", "bella", "belli", "belle",
     "rosso_", "ecc", "etc", "idem", "uguale", "stesso", "stessa", "circa", "tritate",
     "magro", "magra", "grasso", "grassa", "buona", "buon", "meglio",
+    "finemente", "grossolanamente", "grossolano", "tagliato", "tagliata", "tagliati", "tagliate", "battuto",
+    "battuta", "battuti", "battute", "schiacciato", "schiacciata", "schiacciati", "schiacciate", "diviso",
+    "divisa", "divisi", "divise", "drenato", "drenata", "drenati", "drenate", "spremuto", "spremuta",
+    "spremuti", "spremute", "cubato", "cubata", "cubati", "cubate", "rimosso", "rimossa", "rimossi",
+    "rimosse", "scongelato", "scongelata", "scongelati", "imbevuto", "imbevuta", "affilato", "triturato",
+    "triturata", "triturati", "picchiato", "picchiata", "scanalato", "suddiviso", "suddivisi", "terra",
+    "sciacquato", "sciacquati", "asciugato", "asciugata", "asciugati", "ammollo", "ammollato",
+    "trimestrale", "trimestrali", "separato", "separata", "separati", "separate", "risciacquato", "risciacquata",
+    "risciacquati", "risciacquate", "desiderato", "sbriciolato", "sbriciolata", "sbriciolati", "disidratato", "disidratata", "essiccato", "essiccata",
+    "essiccati", "essiccate", "affumicato_", "tostati", "granulare", "raschiato", "raschiata",
 }
 NOT_A_NAME_START = {
     "a", "ma", "che", "non", "nella", "nel", "nei", "nelle", "anche", "possibilmente",
     "leggermente", "servitelo", "servire", "se", "si", "ne", "molto", "poi", "prima", "dopo",
     "circa", "forma", "ottimo", "ottima", "ideale", "meglio", "oppure", "ovvero", "cioe",
-    "debole", "liquido", "ammollito", "inumidito", "scegliere", "usare", "quelli", "quelle",
+    "debole", "liquido", "ammollito", "inumidito", "scegliere", "usare", "quelli", "quelle", "finemente",
+    "piu", "piu'", "taglio", "piatto", "dolore", "odore", "aroma", "consigli", "far", "perno", "cuneo",
     "questo", "questa", "tutti", "tutte", "ogni", "peso", "legato", "scarso", "ridurla",
 }
 BLACKLIST = {
@@ -144,12 +155,13 @@ BLACKLIST = {
     "altre", "resto", "stesso", "tutto", "tutti", "varie", "dose", "dosi", "teglia", "stampo",
     "pirofila", "pentola", "padella", "quantita", "necessario", "occorrente", "sopra", "sotto",
     "ingredienti per", "gusto", "piacere", "pezzi", "pezzo", "cucchiai", "cucchiaio", "grammi",
-    "meglio", "rossi", "rosso", "magro", "legno", "presa", "porzioni", "porzione",
+    "meglio", "rossi", "rosso", "magro", "legno", "presa", "porzioni", "porzione", "semi", "piu", "taglio",
+    "piatto", "dolore", "odore", "aroma", "maria", "consigli", "cuneo", "rene",
     "e", "di", "a", "il", "la", "le", "lo", "i", "gli", "un", "una", "uno", "po", "ml", "kg",
 }
 
 CUTS_RX = (r"^(?:(?:petto|coscia|cosce|fesa|noce|lombata|filetto|polpa|spalla|girello|cosciotto|"
-           r"fettine|fetta|fette|costolette|costoletta|bistecca|bistecche|lonza|arista|taglio|"
+           r"fettine|fetta|fette|costolette|costoletta|bistecca|bistecche|lonza|arista|taglio|petti|cosce|"
            r"pezzo|pezzi|carne|polpa|ossobuco|stinco|cotolette|scaloppine|tagli) (?:di )?)?")
 
 # (regex su nome senza accenti, nome canonico). Il primo che combacia vince.
@@ -163,6 +175,36 @@ ALIASES = [
     (r"^presa( di sale)?$", "sale"),
     (r"^formaggio (?:grana|parmigiano)\b.*$|^gr?formaggio parmigiano.*$", "parmigiano"),
     (r"^formaggio pecorino.*$", "pecorino"),
+    (r"^butter$|^burro .*$", "burro"),
+    (r"^accorciamento( .*)?$|^shortening$", "strutto"),
+    (r"^molasse$|^melassa( .*)?$", "melassa"),
+    (r"^crema di tartaro$|^cremor( di)? tartaro$", "cremor tartaro"),
+    (r"^stock di .*$|^brodo( .*)?$|^bouillon.*$|^cubett\w* di .*$", "brodo"),
+    (r"^pur[eè] di pomodor\w*$", "passata di pomodoro"),
+    (r"^chiodi$", "chiodi di garofano"),
+    (r"^fiocchi di pepe rosso.*$|^pepe rosso.*$", "peperoncino"),
+    (r"^avena( .*)?$|^fiocchi d.?avena.*$", "avena"),
+    (r"^flour$|^all.purpose flour$", "farina"),
+    (r"^succo di lime( .*)?$|^lime( .*)?$|^scorza di lime.*$", "lime"),
+    (r"^ginger$|^zenzero .*$|^pezzo zenzero$", "zenzero"),
+    (r"^cumin$|^cumino( .*)?$", "cumino"),
+    (r"^cilantro$|^coriandolo( .*)?$", "coriandolo"),
+    (r"^dill weed$|^aneto( .*)?$", "aneto"),
+    (r"^lard$|^strutto( .*)?$", "strutto"),
+    (r"^clovi$|^chiodi di garofano( .*)?$|^garofan\w*$", "chiodi di garofano"),
+    (r"^pasta di pomodor\w*$", "concentrato di pomodoro"),
+    (r"^(?:digione )?senape( .*)?$|^digione senape$", "senape"),
+    (r"^bianco d.?uov\w*$|^albume( .*)?$", "uova"),
+    (r"^carni? bovin\w*$|^manzo .*$|^bistecca( .*)?$", "manzo"),
+    (r"^margarita$|^margarina( .*)?$", "margarina"),
+    (r"^paprika( .*)?$|^paprica( .*)?$|^pepe di cayenna.*$", "paprika"),
+    (r"^origano( .*)?$", "origano"),
+    (r"^timo( .*)?$", "timo"),
+    (r"^alloro( .*)?$|^foglio della baia$|^foglie? di alloro$", "alloro"),
+    (r"^scalogn\w*( .*)?$", "scalogno"),
+    (r"^salsa di soia( .*)?$|^soia salsa$", "salsa di soia"),
+    (r"^gamberett\w*( .*)?$|^gamber\w*( .*)?$", "gamberi"),
+    (r"^petti? di pollo( .*)?$|^cosc\w+ di pollo( .*)?$", "pollo"),
     (r"^uv[ae]\w* ?sultanin\w*$|^uvett\w*( .*)?$|^uva passa$", "uvetta"),
     (r"^bicarbonato.*$", "bicarbonato"),
     (r"^(?:midolla|mollica|midollo) di pane.*$", "pane"),
@@ -207,7 +249,7 @@ ALIASES = [
     (r"^prezzemol\w*( .*)?$", "prezzemolo"),
     (r"^rosmarin\w*( .*)?$", "rosmarino"),
     (r"^salvia( .*)?$", "salvia"),
-    (r"^limon\w*( .*)?$|^(?:scorza|succo|buccia)(?: grattugiata)? di limon\w*$", "limone"),
+    (r"^limon\w*( .*)?$|^(?:scorza|succo|buccia)(?: grattugiata)? di limon\w*( .*)?$|^succo di mezzo limone.*$", "limone"),
     (r"^(?:aranc\w*|scorza di aranc\w*|succo di aranc\w*|buccia di aranc\w*)$", "arancia"),
     (r"^noc[ei] moscat\w*$|^odore di noce moscata$", "noce moscata"),
     (r"^odore di (.+)$", None),  # gestito a parte: "odore di spezie" -> spezie
@@ -350,11 +392,13 @@ def extract_names(line):
     """Riga di ingredienti (con markup) -> (lista nomi senza accenti, testo da mostrare)."""
     display = strip_markup(line).strip(" *#:\t")
     display = re.sub(r"\s+", " ", display).strip()
+    # le frazioni scritte con apici nei testi inglesi ("1<sup>1</sup>/<sub>2</sub>") diventano "11/2": si rimettono a posto
+    display = re.sub(r"(?<![\d/])([1-9])([1-7])/(2|3|4|8)(?!\d)", lambda m: "%s %s/%s" % m.groups() if int(m.group(2)) < int(m.group(3)) else m.group(0), display)
     t = unaccent(display).lower()
     if TOOLS_RX.search(t):
         return [], display
     t = re.sub(r"\([^)]*\)", " ", t)
-    t = re.sub(r"\bq\.?\s?b\.?(?=\W|$)|quanto basta|quanta ne (?:occorre|serve|basta)|a piacere|\becc\.?", " ", t)
+    t = re.sub(r"\bq\.?\s?b\.?(?=\W|$)|quanto basta|quanta ne (?:occorre|serve|basta)|a piacere|come desiderato|come necessario|o assaporare|a gusto|per assaggiare|da gustare|\becc\.?", " ", t)
     parts = [x.strip() for x in t.split(",")]
     pieces = parts[:1] + [x for x in parts[1:] if not QTY_PART.search(x)]
     names = []
@@ -364,6 +408,8 @@ def extract_names(line):
             if not n or len(n) < 3 or len(n.split()) > 4 or re.search(r"\d", n) or n in BLACKLIST:
                 continue
             first = n.split()[0]
+            if re.search(r"mente$", n) and " " not in n:
+                continue
             # frasi e verbi finiti per sbaglio negli elenchi: "tagliare a bastoncini", "che sono ..."
             if first in NOT_A_NAME_START or (len(first) >= 6 and re.search(r"(?:are|ere|ire|ndo)$", first)):
                 continue
