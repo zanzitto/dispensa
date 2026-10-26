@@ -1,0 +1,1205 @@
+ricette	ingrediente	categoria
+470	sale	Base
+444	uova	Base
+406	zucchero	Base
+337	burro	Base
+335	farina	Base
+318	olio	Base
+193	latte	Base
+184	pepe	Base
+165	cipolla	Verdure e frutta
+151	acqua	Base
+145	parmigiano	Formaggi e salumi
+142	aglio	Verdure e frutta
+131	limone	Verdure e frutta
+99	lievito	Base
+97	prezzemolo	Verdure e frutta
+75	patate	Verdure e frutta
+72	mandorle	Legumi e frutta secca
+66	vino bianco	Base
+60	pomodori	Verdure e frutta
+60	vaniglia	Base
+57	noce moscata	Base
+56	brodo	Base
+55	carote	Verdure e frutta
+54	riso	Pasta, riso, pane
+53	pane	Pasta, riso, pane
+49	peperoncino	Verdure e frutta
+49	cannella	Base
+49	cioccolato	Base
+49	pasta	Pasta, riso, pane
+48	prosciutto	Formaggi e salumi
+48	passata di pomodoro	Verdure e frutta
+46	panna	Base
+41	uvetta	Legumi e frutta secca
+40	ricotta	Formaggi e salumi
+39	pangrattato	Pasta, riso, pane
+37	sedano	Verdure e frutta
+35	pecorino	Formaggi e salumi
+32	pinoli	Legumi e frutta secca
+31	aceto	Base
+30	acciughe	Carne e pesce
+30	rum	Base
+28	cacao	Base
+26	funghi	Verdure e frutta
+26	basilico	Verdure e frutta
+24	chiodi di garofano	Base
+24	vitello	Carne e pesce
+24	bicarbonato	Base
+23	strutto	Base
+23	peperoni	Verdure e frutta
+22	vino rosso	Base
+22	capperi	Verdure e frutta
+20	origano	Verdure e frutta
+18	rosmarino	Verdure e frutta
+18	salvia	Verdure e frutta
+17	manzo	Carne e pesce
+17	alloro	Verdure e frutta
+17	noci	Legumi e frutta secca
+17	lardo	Formaggi e salumi
+17	zucchine	Verdure e frutta
+17	marsala	Base
+17	arancia	Verdure e frutta
+17	zafferano	Base
+15	melanzane	Verdure e frutta
+14	pancetta	Formaggi e salumi
+14	candito	Base
+13	mele	Verdure e frutta
+13	formaggio	Formaggi e salumi
+12	miele	Base
+12	spezie	Base
+11	pollo	Carne e pesce
+11	spinaci	Verdure e frutta
+11	semolino	Pasta, riso, pane
+10	maiale	Carne e pesce
+10	scalogno	Altro
+10	mozzarella	Formaggi e salumi
+10	menta	Verdure e frutta
+10	concentrato di pomodoro	Base
+10	tonno	Carne e pesce
+10	cedro candito	Base
+10	savoiardi	Pasta, riso, pane
+9	nocciole	Legumi e frutta secca
+9	vino	Base
+9	maggiorana	Base
+9	fegatini di pollo	Carne e pesce
+9	colla di pesce	Base
+9	midollo di bue	Altro
+9	lingua salata	Altro
+8	timo	Verdure e frutta
+8	caffè	Base
+8	bietola	Verdure e frutta
+7	fecola di patate	Base
+7	porro	Altro
+7	farina di frumento integrale	Base
+7	cremor di tartaro	Base
+6	zenzero	Verdure e frutta
+6	salsa di soia	Base
+6	pere	Verdure e frutta
+6	banane	Altro
+6	cumino	Base
+6	grappa	Base
+6	zucca	Verdure e frutta
+6	anaci	Base
+5	amido di mais	Base
+5	speck	Formaggi e salumi
+5	olive nere	Verdure e frutta
+5	buccia d'arancia	Verdure e frutta
+5	cognac	Base
+5	seppie	Carne e pesce
+5	tofu	Altro
+5	verza	Altro
+5	carciofi	Verdure e frutta
+5	piselli	Legumi e frutta secca
+5	salsiccia	Formaggi e salumi
+5	biscotti secchi	Pasta, riso, pane
+5	coriandolo	Altro
+5	gamberi	Carne e pesce
+5	fagiolini	Legumi e frutta secca
+5	amaretti	Altro
+5	piselli sgranati	Legumi e frutta secca
+5	spirito di vino	Base
+5	carnesecca	Carne e pesce
+5	semolino di grana	Pasta, riso, pane
+5	arancio candito	Base
+5	zibibbo	Altro
+5	uva passolina	Altro
+4	margarina	Altro
+4	nutella	Altro
+4	buccia di un limone	Verdure e frutta
+4	olive	Verdure e frutta
+4	trippa	Altro
+4	tacchino	Carne e pesce
+4	erba cipollina	Altro
+4	fichi secchi	Verdure e frutta
+4	coniglio	Carne e pesce
+4	caffè solubile	Base
+4	fagioli	Legumi e frutta secca
+4	tagliata	Altro
+4	salsicce	Altro
+4	kirsch	Altro
+4	fragole	Verdure e frutta
+4	rosolio	Altro
+4	maionese	Base
+4	yogurt	Formaggi e salumi
+4	fagioli borlotti	Legumi e frutta secca
+4	cedro	Base
+4	mascarpone	Formaggi e salumi
+4	scorza di un limone	Verdure e frutta
+4	sugo di carne	Carne e pesce
+4	gruiera	Altro
+4	ribes	Altro
+4	senz'osso	Altro
+4	lardone	Altro
+4	farina di riso	Base
+4	detta di grano	Altro
+4	uva malaga	Altro
+3	guanciale	Formaggi e salumi
+3	tahina	Altro
+3	sugna	Altro
+3	latte di soia	Base
+3	gherigli di noci	Legumi e frutta secca
+3	rucola	Verdure e frutta
+3	gherigli di noce	Altro
+3	senape	Base
+3	cetriolini	Verdure e frutta
+3	amaretti sbriciolati	Altro
+3	cozze	Carne e pesce
+3	cefali	Altro
+3	fagioli cannellini	Legumi e frutta secca
+3	coste di sedano	Verdure e frutta
+3	farina integrale	Base
+3	confettini colorati	Altro
+3	scorza di mezzo limone	Verdure e frutta
+3	tagliato	Altro
+3	maizena	Altro
+3	costa di sedano	Verdure e frutta
+3	mistrà	Altro
+3	finocchio selvatico	Verdure e frutta
+3	ceci	Legumi e frutta secca
+3	rape	Altro
+3	farina di ceci	Base
+3	pasta frolla	Pasta, riso, pane
+3	carne	Carne e pesce
+3	insalata	Verdure e frutta
+3	lime	Altro
+3	curry	Altro
+3	pesto	Altro
+3	cocco	Verdure e frutta
+3	cavolo nero	Verdure e frutta
+3	seitan	Altro
+3	vin santo	Altro
+3	mortadella di bologna	Formaggi e salumi
+3	amido	Base
+3	ben	Altro
+3	pistacchi	Legumi e frutta secca
+3	fegatino di pollo	Carne e pesce
+3	odore	Altro
+3	siccioli	Altro
+3	candito a pezzettini	Base
+3	tartufi neri	Altro
+3	capperi spremuti dall'aceto	Base
+2	olive verdi	Verdure e frutta
+2	pasta di gamberetti	Pasta, riso, pane
+2	cm di galanga	Altro
+2	succo limone	Verdure e frutta
+2	grappa di vinaccia	Base
+2	spago	Altro
+2	stecca di vaniglia	Base
+2	bigoli	Altro
+2	prugne secche snocciolate	Altro
+2	margarina vegetale	Altro
+2	fiocchi d'avena	Altro
+2	sottaceti	Altro
+2	olio-extra vergine di oliva	Base
+2	vitellone	Carne e pesce
+2	c di burro	Base
+2	baccello di vaniglia	Base
+2	scorza d'arancia	Verdure e frutta
+2	triglia	Altro
+2	pesce misto	Carne e pesce
+2	bacche di ginepro	Altro
+2	cotiche di maiale	Carne e pesce
+2	piedino di maiale	Carne e pesce
+2	semi di anice	Altro
+2	emmentaler	Altro
+2	pesce spada	Carne e pesce
+2	coda di vitellone	Carne e pesce
+2	lauro	Altro
+2	anice	Altro
+2	tartufo	Altro
+2	animella	Altro
+2	cervella	Altro
+2	aromi	Altro
+2	coda di rospo	Altro
+2	crema pasticcera	Altro
+2	kiwi	Altro
+2	albicocche	Verdure e frutta
+2	crescione	Altro
+2	ceci secchi	Legumi e frutta secca
+2	dimensioni	Altro
+2	ananas	Verdure e frutta
+2	cresta	Altro
+2	scampi	Altro
+2	fiori di zucchina	Altro
+2	carne macinata di manzo	Carne e pesce
+2	verdure	Verdure e frutta
+2	würstel	Altro
+2	pisellini	Legumi e frutta secca
+2	tartufo nero	Altro
+2	avocado	Altro
+2	paprika	Altro
+2	succo d'arancia	Verdure e frutta
+2	carne macinata	Carne e pesce
+2	paprica dolce	Altro
+2	senape forte	Base
+2	brandy	Altro
+2	scorze di limone	Verdure e frutta
+2	pesche	Verdure e frutta
+2	mosto	Altro
+2	emmenthal	Altro
+2	semi	Altro
+2	agnello	Carne e pesce
+2	ridotte	Altro
+2	sugo	Altro
+2	finemente	Altro
+2	wasabi	Altro
+2	pelate	Altro
+2	fiori d'arancio	Altro
+2	cavolo verza	Verdure e frutta
+2	farina di grano saraceno	Base
+2	curcuma	Altro
+2	cavolo	Verdure e frutta
+2	succo di lime	Altro
+2	malto	Altro
+2	borragine	Altro
+2	preböggiön	Altro
+2	prescinsôea	Altro
+2	di noce moscata	Base
+2	pennette	Altro
+2	carne di cavallo	Carne e pesce
+2	pescespada	Carne e pesce
+2	succo di un limone	Verdure e frutta
+2	frutta	Verdure e frutta
+2	rafano	Altro
+2	busta di lievito	Base
+2	farina di mais	Base
+2	pasta sfoglia	Pasta, riso, pane
+2	pancetta di maiale dolce	Formaggi e salumi
+2	latte di cocco	Base
+2	cavolfiore	Verdure e frutta
+2	luganega	Altro
+2	marmellata di albicocche	Base
+2	amaretto di saronno	Altro
+2	shoyu	Altro
+2	succo di mezzo limone	Verdure e frutta
+2	sakè	Altro
+2	salsa shoyu	Altro
+2	salmone affumicato	Carne e pesce
+2	liquore	Base
+2	fecola	Base
+2	mirin	Altro
+2	zucca gialla	Verdure e frutta
+2	tartufi	Altro
+2	mele cotogne	Verdure e frutta
+2	sugo di un limone	Verdure e frutta
+2	mele rose	Verdure e frutta
+2	ciliege visciole	Altro
+2	latte buono	Base
+2	o panna	Base
+2	sedano lunga un palmo	Verdure e frutta
+2	formaggio gruiera	Formaggi e salumi
+2	ciliege more	Altro
+2	pesate col nocciolo	Altro
+2	spirito	Altro
+2	come	Altro
+2	acquavite	Altro
+2	nocciuole	Altro
+2	buccia di limone	Verdure e frutta
+2	agro di un limone	Verdure e frutta
+2	mele reinettes	Verdure e frutta
+2	uva di corinto	Altro
+2	raschiatura di un limone	Verdure e frutta
+2	dette amare	Altro
+2	lardo vergine	Formaggi e salumi
+2	di prosciutto	Formaggi e salumi
+2	mortadella	Formaggi e salumi
+2	agro di limone	Verdure e frutta
+2	acido citrico	Altro
+2	ciliege marasche	Altro
+2	detta sultanina	Altro
+1	fettina di cipolla	Verdure e frutta
+1	olive piccanti al peperoncino	Verdure e frutta
+1	complete di peso	Altro
+1	coperchio	Altro
+1	alte	Altro
+1	casalinghe	Altro
+1	vetro che fa	Altro
+1	sa le misure	Altro
+1	spesso ne ha	Altro
+1	mattonelle ottagonali	Altro
+1	scarto	Altro
+1	hanno qualcosa	Altro
+1	puzza	Altro
+1	con la scritta	Altro
+1	forse non	Altro
+1	tutto sicuro	Altro
+1	prezzo si abbassa	Altro
+1	già pronta di pasta	Pasta, riso, pane
+1	salsicce secche	Altro
+1	salsa tartufata	Altro
+1	pâté di fegato	Carne e pesce
+1	noci di bancoul	Legumi e frutta secca
+1	polpa di tamarindo ammollata	Altro
+1	cucciaino	Altro
+1	carne di maiale tegliata	Carne e pesce
+1	steli di citronella	Altro
+1	uva bianca	Altro
+1	mestolo di brodo	Base
+1	succo pompelmo	Altro
+1	succo ananas	Verdure e frutta
+1	succo pesca	Altro
+1	granatina	Altro
+1	carne di vitello finemente	Carne e pesce
+1	baccalà dissalato	Carne e pesce
+1	gusti	Altro
+1	condimenti	Altro
+1	baccalà	Carne e pesce
+1	pizzichino di sale	Base
+1	ben mantecato	Altro
+1	ben raffreddato	Altro
+1	gorgonzola dolce	Formaggi e salumi
+1	petto d'anatra	Altro
+1	grani di pepe	Base
+1	crema	Altro
+1	sbrinz	Altro
+1	pezzettino dado vegetale	Altro
+1	noce moscata appena	Base
+1	baccalà ragno	Carne e pesce
+1	anatra novella	Altro
+1	dose di lievito	Base
+1	filetti di acciughe sott'olio	Base
+1	di formaggio poco stagionato	Formaggi e salumi
+1	scannello serrato	Altro
+1	birra guinness	Altro
+1	ctav di farina	Base
+1	baccalà salato	Carne e pesce
+1	mazzettino i menta	Verdure e frutta
+1	farina di cocco	Base
+1	grano saraceno	Altro
+1	fiocchi d'avena macinati	Altro
+1	baking	Altro
+1	corn flakes	Altro
+1	buste di vanillina	Altro
+1	g.di zucchero	Base
+1	soprattutto nell'ovadese	Altro
+1	semi di papavero	Altro
+1	latte vegetale	Base
+1	crema di nocciole	Legumi e frutta secca
+1	batata	Altro
+1	insalata giardiniera	Verdure e frutta
+1	diliscate	Altro
+1	mondate di testa	Altro
+1	muesli alla frutta	Verdure e frutta
+1	latte d'avena	Base
+1	baccalà ammollato	Carne e pesce
+1	miglioratore	Altro
+1	aroma panettone	Altro
+1	vino barolo	Base
+1	lardo stagionato	Formaggi e salumi
+1	canalini	Altro
+1	calamari	Carne e pesce
+1	spinaci lessi	Verdure e frutta
+1	c di farina	Base
+1	polpi	Altro
+1	palombo	Altro
+1	pesce	Carne e pesce
+1	cicale	Altro
+1	frutti di mare misti	Altro
+1	concentrato	Base
+1	arrostito	Altro
+1	pepato	Altro
+1	agliato	Altro
+1	sacchetto	Altro
+1	grappa bianca	Base
+1	puch all'arancia	Verdure e frutta
+1	genepy	Altro
+1	carne avanzata	Carne e pesce
+1	pasta di lucanica	Pasta, riso, pane
+1	estratto di anice	Altro
+1	sedici canestrelli	Altro
+1	sedici pomodorini ciliegia	Verdure e frutta
+1	cacoccioli	Altro
+1	comino	Altro
+1	farina di mandorle	Base
+1	gallinella	Altro
+1	busta di zafferano	Base
+1	biancostato	Altro
+1	aroma di limone	Verdure e frutta
+1	besciamella vegana	Altro
+1	spolverata di zenzero	Verdure e frutta
+1	estratto di vaniglia	Base
+1	biscotti secchi sbriciolati	Pasta, riso, pane
+1	carciofini	Verdure e frutta
+1	pancetta dolce cubettata	Formaggi e salumi
+1	codino di maiale	Carne e pesce
+1	orecchia	Altro
+1	muso	Altro
+1	verzini	Altro
+1	testa	Altro
+1	verso il novarese	Altro
+1	frutta candita	Verdure e frutta
+1	filetto di salmone	Carne e pesce
+1	pompelmo rosa	Altro
+1	cespo di lattuga	Verdure e frutta
+1	aneto	Altro
+1	farina di castagne	Base
+1	o pugliesi	Altro
+1	capperi sottoaceto	Verdure e frutta
+1	k di mosto	Altro
+1	salame	Formaggi e salumi
+1	ciccioli	Altro
+1	provolone	Altro
+1	carciofi romaneschi	Verdure e frutta
+1	mentuccia un cucchiaio	Altro
+1	liquore all'anice	Base
+1	eviscerati	Altro
+1	filetto di acciuga	Carne e pesce
+1	spezzatino di soia	Legumi e frutta secca
+1	idratato	Altro
+1	stampi cilindrici di metallo	Altro
+1	sacapoche	Altro
+1	grattugia	Altro
+1	contenitore	Altro
+1	polpa di pomodoro passata	Verdure e frutta
+1	mazzolino prezzemolo	Verdure e frutta
+1	maggiorana essiccata	Base
+1	timo essiccato	Verdure e frutta
+1	coda di vitello	Carne e pesce
+1	preparato	Altro
+1	costolette	Carne e pesce
+1	o nodini	Altro
+1	costine	Altro
+1	anice stellato macinati	Altro
+1	osso di prosciutto	Formaggi e salumi
+1	fegato del coniglio	Carne e pesce
+1	tettina	Altro
+1	filone spinale	Altro
+1	coppa di maiale	Carne e pesce
+1	ramo di salvia	Verdure e frutta
+1	spruzzata di noce moscata	Base
+1	ciccioli omissibili	Altro
+1	chorizo	Altro
+1	sanguinaccio	Altro
+1	osso di manzo	Carne e pesce
+1	scorfano	Altro
+1	testone	Altro
+1	sbarro	Altro
+1	trancia di dentice	Altro
+1	gronco	Altro
+1	calamaretti	Altro
+1	cozze nere	Carne e pesce
+1	arselle	Altro
+1	murici	Altro
+1	crostini di pane casareccio	Pasta, riso, pane
+1	cicoria	Altro
+1	mirtilli rossi	Altro
+1	opzionale essenza di limone	Verdure e frutta
+1	cachi	Altro
+1	scorze d'arancia non trattate	Verdure e frutta
+1	fialetta	Altro
+1	fegato di vitello	Carne e pesce
+1	diavoletti colorati	Altro
+1	tagliato a dadi	Altro
+1	datteri	Altro
+1	cestino di fragole	Verdure e frutta
+1	cestino di mirtilli	Altro
+1	legumi secchi	Altro
+1	busta di gelatina	Base
+1	formaggio caprino	Formaggi e salumi
+1	torcia a gas	Altro
+1	tsp coriandolo	Altro
+1	tsp cumino	Base
+1	tavoletta di cioccolato fondente	Base
+1	formaggio di malga	Formaggi e salumi
+1	presa di sale fino	Base
+1	fior di latte	Base
+1	bianco d'uovo sbattuto	Altro
+1	varie uova	Base
+1	capperi salati del sale	Base
+1	filetti di acciughe	Carne e pesce
+1	castagne sciroppate	Legumi e frutta secca
+1	confettura	Base
+1	crema di nocciola	Altro
+1	grano duro	Altro
+1	menta maggiorana	Base
+1	filetti di sogliola	Altro
+1	mestolini di brodo	Base
+1	fettine di arancio	Altro
+1	aromi eventuali pepe	Base
+1	o aglio	Verdure e frutta
+1	o origano	Verdure e frutta
+1	crescenza	Altro
+1	formaggio montasio	Formaggi e salumi
+1	formaggio montasio stagionato	Formaggi e salumi
+1	asparagi spezzati	Verdure e frutta
+1	lardo di maiale	Formaggi e salumi
+1	pancetta stesa	Formaggi e salumi
+1	crème fraîche compatta	Altro
+1	frutta mele	Verdure e frutta
+1	madeira	Altro
+1	impasto	Altro
+1	crescenza freschissima - prodotta	Altro
+1	castelmagno	Altro
+1	raschera	Altro
+1	filoni	Altro
+1	bargigli	Altro
+1	ovetti	Altro
+1	salsiccia di maiale	Formaggi e salumi
+1	giardiniera sott'aceto	Base
+1	manzo di prima scelta	Carne e pesce
+1	allergico alle arachidi	Legumi e frutta secca
+1	ramoscello di timo	Verdure e frutta
+1	varietà di salse	Altro
+1	vacherin fribourgeois	Altro
+1	aromi fondamentali	Altro
+1	ostriche	Altro
+1	salsiccia di debrecen	Formaggi e salumi
+1	gamberetti	Altro
+1	fedelini	Altro
+1	fumetto di pesce	Carne e pesce
+1	latte mezzo bicchiere	Base
+1	frisella	Altro
+1	carosello	Altro
+1	cotica di maiale	Carne e pesce
+1	fileja	Altro
+1	nduja	Altro
+1	ferricelli	Altro
+1	piante aromatiche	Altro
+1	ortaggi	Altro
+1	panino	Altro
+1	sottoli	Altro
+1	mais	Altro
+1	verdi	Altro
+1	aromi misti	Altro
+1	oca	Altro
+1	fioreta	Altro
+1	formaggio stagionato	Formaggi e salumi
+1	cetrioli	Verdure e frutta
+1	cubetti di ghiaccio	Altro
+1	spremuta di limone	Verdure e frutta
+1	crema di latte	Base
+1	pesto alla genovese	Altro
+1	moscardini	Altro
+1	divino bianco	Altro
+1	insalata mista	Verdure e frutta
+1	pompelmo	Altro
+1	crema di avocado	Altro
+1	miele d'acacia o	Base
+1	castagno	Altro
+1	baccelli freschissimi	Altro
+1	sesamo	Altro
+1	latte condensato	Base
+1	pasta di pistacchio	Pasta, riso, pane
+1	pesce san pietro	Carne e pesce
+1	gamberi rossi di sicilia	Carne e pesce
+1	succo di una arancia	Verdure e frutta
+1	scamorza	Altro
+1	senza buccia	Altro
+1	fagioli borlotti lessi	Legumi e frutta secca
+1	fagioli cannellini lessi	Legumi e frutta secca
+1	ceci lessi	Legumi e frutta secca
+1	qualità preferita	Altro
+1	sugo di agnello	Carne e pesce
+1	trippa ovina	Altro
+1	insalata riccia	Verdure e frutta
+1	pancetta affumicata tesa	Formaggi e salumi
+1	o pecorino sardo	Formaggi e salumi
+1	caciocavallo	Altro
+1	malloreddus	Altro
+1	albiccocche	Altro
+1	lumache	Altro
+1	di pomodoro	Verdure e frutta
+1	erbe aromatiche	Altro
+1	cartina	Altro
+1	essenza d'anice	Altro
+1	polpo	Carne e pesce
+1	ananas al naturale	Verdure e frutta
+1	salsa worcestershire	Altro
+1	tomato ketchup	Altro
+1	tranci di prosciutto	Formaggi e salumi
+1	porto	Altro
+1	aroma fior d' arancio	Altro
+1	c di rum	Base
+1	marmellata	Base
+1	cappello del prete	Altro
+1	verdure sedano	Verdure e frutta
+1	galanga	Altro
+1	radice di iris	Altro
+1	baccelli di cardamomo	Altro
+1	vaso di vetro	Altro
+1	granuli di kefir nota	Altro
+1	"tibicos"	Altro
+1	malto liquido	Altro
+1	stanza	Altro
+1	pasta madre solida	Pasta, riso, pane
+1	pasta madre liquida	Pasta, riso, pane
+1	harissa	Altro
+1	braciole di maiale	Carne e pesce
+1	vino chianti	Base
+1	pinze	Altro
+1	ben pieni di miele	Base
+1	kammun	Altro
+1	cavolfiore di mezza grandezza	Verdure e frutta
+1	cumino al gusto	Base
+1	paprica	Altro
+1	goccino di limone	Verdure e frutta
+1	pancetta di maiale	Formaggi e salumi
+1	miele millefiori	Base
+1	semi vaniglia	Base
+1	fonte di proteine	Altro
+1	ingrediente acidificante	Altro
+1	filetti di sogliole	Altro
+1	insalata russa ridotta	Verdure e frutta
+1	orzo perlato	Pasta, riso, pane
+1	spolverata di noce moscata	Base
+1	spolverata pesante di cannella	Base
+1	carne di agnello macinata	Carne e pesce
+1	ossibuchi di vitello	Carne e pesce
+1	naturalmente - finemente	Altro
+1	filetti acciughe sott'olio	Base
+1	sangue di maiale	Carne e pesce
+1	fiocchi di strutto	Base
+1	bacche di rosa selvatiche	Altro
+1	pastello	Altro
+1	gomma arabica	Altro
+1	essenza	Altro
+1	colorante caramello	Altro
+1	salmone freschissimo	Carne e pesce
+1	germogli di fagiolo	Altro
+1	cm di curcuma ridotta	Altro
+1	cm di galanga ridotta	Altro
+1	tofu duro	Altro
+1	tagliato a strisce	Altro
+1	ben fritto	Altro
+1	bollite	Altro
+1	scorze di due agrumi	Altro
+1	liquore profumato anice	Base
+1	borlotti	Altro
+1	orata	Altro
+1	olive taggiasche	Verdure e frutta
+1	polpa di manzo passata	Carne e pesce
+1	o ancora finemente	Altro
+1	mirtilli	Altro
+1	lenticchie	Legumi e frutta secca
+1	baharat	Altro
+1	cardamomo	Altro
+1	buccia di sei limoni	Altro
+1	preferibilmente	Altro
+1	paletta di legno	Altro
+1	noci verdi	Legumi e frutta secca
+1	semi di sesamo	Altro
+1	arachidi	Legumi e frutta secca
+1	semi di senape	Base
+1	seme di fieno greco	Altro
+1	finocchi	Verdure e frutta
+1	ossa di maiale	Carne e pesce
+1	ventresca	Altro
+1	monacelle	Altro
+1	uva nera	Altro
+1	sciroppo di ciliegia	Base
+1	sciroppo di zucchero	Base
+1	spumante	Altro
+1	fagioli bianchi "di spagna"	Legumi e frutta secca
+1	fagiolini verdi	Legumi e frutta secca
+1	paprika dolce	Altro
+1	risoni	Altro
+1	latte di mucca	Base
+1	salamino	Altro
+1	fagioli borlotti secchi	Legumi e frutta secca
+1	salciccia	Altro
+1	pancetta pepata	Formaggi e salumi
+1	gianchetti freschissimi	Altro
+1	sciroppo d'acero	Base
+1	salsa di noci	Legumi e frutta secca
+1	uva secca	Altro
+1	cardi	Altro
+1	broccolo di dimensioni	Verdure e frutta
+1	contenente grappa	Base
+1	contenente cognac	Base
+1	contenente caffè realizzato	Base
+1	contenente vino rosso	Base
+1	contenente zucchero	Base
+1	succo alla mela	Verdure e frutta
+1	liquore anice	Base
+1	'nduja	Altro
+1	panini	Altro
+1	più altro	Altro
+1	ostie	Altro
+1	quarto di cipolla	Verdure e frutta
+1	cavolo bianco	Verdure e frutta
+1	o broccolo romano	Verdure e frutta
+1	pizzaiola	Altro
+1	ossia i panini soffiati	Altro
+1	pacco di pavesini	Altro
+1	strutto di maiale	Base
+1	sugo al pomodoro	Verdure e frutta
+1	martini dry	Altro
+1	grano	Altro
+1	fiala di fior d'arancio	Altro
+1	pecora	Altro
+1	pinoli mediterranei	Legumi e frutta secca
+1	pochissimo sale marino	Base
+1	pennette di pasta	Pasta, riso, pane
+1	pomidoro	Altro
+1	ammorbiditi	Altro
+1	meringa dai bordi rialzati	Altro
+1	solito kiwi	Altro
+1	frammento di peperoncino	Verdure e frutta
+1	cavoli rapa	Verdure e frutta
+1	rape di milano	Altro
+1	dall'umidita ambientale	Altro
+1	pipette	Altro
+1	nera	Altro
+1	vasetto di zucchero	Base
+1	macinate di pepe	Base
+1	più possibile	Altro
+1	caglio	Altro
+1	carne di bovino adulto	Carne e pesce
+1	fiocchi d'avema	Altro
+1	formaggio casera stagionato	Formaggi e salumi
+1	formaggio casera	Formaggi e salumi
+1	presa di timo	Verdure e frutta
+1	polli novelli	Altro
+1	capperi sott'aceto	Base
+1	pollo eviscerato	Carne e pesce
+1	corteccia	Altro
+1	succo di un'arancia	Verdure e frutta
+1	cubetto lievito di birra	Base
+1	tra chiodi di garofano	Base
+1	origanum	Altro
+1	missoltini del lario	Altro
+1	serpillo	Altro
+1	polmone	Altro
+1	vedi voce su wikipedia	Altro
+1	pasta brisée	Pasta, riso, pane
+1	vino passito	Base
+1	pochissimo olio di oliva	Base
+1	fagioli toscanelli	Legumi e frutta secca
+1	soppressata calabrese piccante	Altro
+1	provola affumicata asciutta	Formaggi e salumi
+1	filetti di pomodoro	Verdure e frutta
+1	spremuta di un'arancia	Verdure e frutta
+1	cannella dolce	Base
+1	pisellini bolliti	Legumi e frutta secca
+1	rane	Altro
+1	pelato	Altro
+1	stelo di citronella	Altro
+1	da the di zucchero	Base
+1	cm di zenzero	Verdure e frutta
+1	cm di curcuma	Altro
+1	coriandolo macinato	Altro
+1	quinoa	Altro
+1	seme di cardamomo	Altro
+1	gorgonzola	Formaggi e salumi
+1	fave secche non decorticate	Legumi e frutta secca
+1	latte concentrato	Base
+1	quaglie	Altro
+1	oio di semi	Altro
+1	manioca	Altro
+1	proteine ​​di soia scura	Legumi e frutta secca
+1	agli	Altro
+1	cubetto di brodo vegetale	Base
+1	salumi	Altro
+1	emmenthal a scaglie	Altro
+1	mandarini	Altro
+1	vanilina	Altro
+1	porri di grandezza	Verdure e frutta
+1	fiocchi di mais	Altro
+1	hl di caffè ristretto	Base
+1	disliscate	Altro
+1	jamón serrano spagnolo	Altro
+1	salamelle di maiale	Formaggi e salumi
+1	besciamella	Altro
+1	asparagi bianchi	Verdure e frutta
+1	panino bianco	Altro
+1	nodini di vitello	Carne e pesce
+1	uva bianca apirena	Altro
+1	brie a stagionatura intermedia	Altro
+1	caciotta di pecorino	Formaggi e salumi
+1	costate di vitello	Carne e pesce
+1	erba salvia	Verdure e frutta
+1	dragoncello	Altro
+1	pesciolini	Altro
+1	biscotti sbriciolati	Pasta, riso, pane
+1	marmellata di lamponi	Base
+1	punsch	Altro
+1	liquore alla mandorla	Base
+1	costine di agnello	Carne e pesce
+1	"cip'duzz"	Altro
+1	salmone	Carne e pesce
+1	sogliola	Altro
+1	spumante brut mezzo bicchiere	Altro
+1	fondo di prosciutto	Formaggi e salumi
+1	c di zenzero	Verdure e frutta
+1	cm di alga kombu	Altro
+1	o cannella	Base
+1	liquore all'arancia	Base
+1	spaghetti di grano duro	Altro
+1	scorza di agrume	Altro
+1	riserva	Altro
+1	finissime	Altro
+1	buccia di un arancio	Altro
+1	fettine di seitan	Altro
+1	prugne secche	Altro
+1	ciliegine candite	Altro
+1	pesce di varie qualità	Carne e pesce
+1	daikon	Altro
+1	formaggio "primosale"	Formaggi e salumi
+1	gelato al limone	Verdure e frutta
+1	prosecco	Altro
+1	vodka al limone	Verdure e frutta
+1	scarola	Altro
+1	filetti di alici	Altro
+1	olive nere di gaeta	Verdure e frutta
+1	pasta di pane	Pasta, riso, pane
+1	ragù di carne	Carne e pesce
+1	chiaramente toscano	Altro
+1	carne di vitello macinata	Carne e pesce
+1	mortadella macinata	Formaggi e salumi
+1	confettini cannellini	Altro
+1	arancia candita	Verdure e frutta
+1	zucca candita	Verdure e frutta
+1	filetti d'acciuga	Altro
+1	pastamatta	Altro
+1	fettine di mele	Verdure e frutta
+1	formaggio olandese	Formaggi e salumi
+1	formaggio di grana	Formaggi e salumi
+1	tufo	Altro
+1	controfiletto di manzo	Carne e pesce
+1	noodle secchi	Altro
+1	lardo di manzo	Formaggi e salumi
+1	tagliato a metà	Altro
+1	stoccafisso	Altro
+1	c di parmigiano	Formaggi e salumi
+1	scolapasta	Altro
+1	cappello	Altro
+1	stecca di cannella	Base
+1	grani di pepe nero	Base
+1	reale di asino	Altro
+1	cc di vino rosso	Base
+1	petti di pollo	Carne e pesce
+1	da caffè di panna	Base
+1	sottilette	Altro
+1	chitarra	Altro
+1	carne macinata mista	Carne e pesce
+1	steli erba cipollina	Altro
+1	carne macinata di maiale	Carne e pesce
+1	mollica di pan carrè	Altro
+1	vongole	Carne e pesce
+1	ossi della bestia	Altro
+1	caffè espresso	Base
+1	margarina non idrogenata	Altro
+1	succo	Altro
+1	pancarré	Altro
+1	groviera	Altro
+1	vasetti di zucchero	Base
+1	vasetti di farina	Base
+1	vasetto di olio	Base
+1	cubetti di cioccolato	Base
+1	fogli di gelatina	Base
+1	pandoro	Altro
+1	caffè forte	Base
+1	scaglie di cioccolato fondente	Base
+1	cicoli	Altro
+1	fettine di lucertolo	Altro
+1	da caffè di brodo	Base
+1	filetti d'acciuga sott'olio	Base
+1	formaggio filadelfia	Formaggi e salumi
+1	filetto di baccalà	Carne e pesce
+1	aringa affumicata	Altro
+1	cumino mediorientale	Base
+1	santoreggia	Altro
+1	mars	Altro
+1	filetti di tonno	Carne e pesce
+1	linome	Altro
+1	biscotti amaretti	Pasta, riso, pane
+1	biscotti	Pasta, riso, pane
+1	crakers	Altro
+1	stracchino	Altro
+1	olive verdi condite	Verdure e frutta
+1	costa sedano	Verdure e frutta
+1	buccia di mezzo limone	Verdure e frutta
+1	gelatina di ribes	Base
+1	carne di asino	Carne e pesce
+1	sottilette al parmigiano	Formaggi e salumi
+1	zustrudel di melecchero	Altro
+1	casera valtellina	Altro
+1	trenette	Altro
+1	formaggio di reggiano	Formaggi e salumi
+1	triglie di scoglio	Altro
+1	pacchetto di biscotti secchi	Pasta, riso, pane
+1	fialetta alla mandorla	Altro
+1	fialetta al limone	Verdure e frutta
+1	marmellata di pesche	Base
+1	olive nere del salento	Verdure e frutta
+1	pezzetti	Altro
+1	petto di vitrello	Altro
+1	cerfoglio	Altro
+1	coltivata possibilmente	Altro
+1	zucca "trombetta"	Verdure e frutta
+1	corposo	Altro
+1	stecche di cannella	Base
+1	bietole verdi	Verdure e frutta
+1	in alternativa altre verdure	Verdure e frutta
+1	ortiche	Altro
+1	borraggine	Altro
+1	lardo e	Formaggi e salumi
+1	o burro e	Base
+1	o olio	Base
+1	pera "williams"	Verdure e frutta
+1	ricopertura	Altro
+1	bucce di arancia	Verdure e frutta
+1	candite	Altro
+1	farcia	Altro
+1	bagna	Altro
+1	base pan di spagna	Altro
+1	bruciati	Altro
+1	cotognata	Altro
+1	alchermes	Altro
+1	grano tenero	Altro
+1	budino al cioccolato	Base
+1	trippa bianca	Altro
+1	già	Altro
+1	o pecorino romano	Formaggi e salumi
+1	menta romana	Verdure e frutta
+1	detta anche mentastro verde	Verdure e frutta
+1	trippa acquistata	Altro
+1	sugo di arrosto	Altro
+1	noce di burro	Base
+1	terlaner weiβburgunder	Altro
+1	panino raffermo	Altro
+1	noce burro	Base
+1	pacco di savoiardi	Pasta, riso, pane
+1	orzo	Pasta, riso, pane
+1	pan di spagna	Altro
+1	vasetto marmellata arance	Base
+1	liquore di mandorla amara	Base
+1	insalatiera "tondeggiante"	Altro
+1	noodle ramen	Altro
+1	divise	Altro
+1	radice di zenzero	Verdure e frutta
+1	foglio di alga non	Altro
+1	bambù	Altro
+1	salsa di soia scura	Base
+1	dashi granulare	Altro
+1	miso	Altro
+1	gambe di sedano	Verdure e frutta
+1	legumi vari	Altro
+1	amarene sciroppate	Altro
+1	ciliegie candite	Verdure e frutta
+1	buste di lievito	Base
+1	zucchetta	Altro
+1	fave secche	Legumi e frutta secca
+1	alloro cipolla	Verdure e frutta
+1	miele d'api	Base
+1	fegatino	Altro
+1	bargigli del pollo medesimo	Carne e pesce
+1	pallina di tartufi o	Altro
+1	in mancanza di questi	Altro
+1	purché odorosi	Altro
+1	muscolo senz'osso	Altro
+1	zampe di due	Altro
+1	pollo coi colli	Carne e pesce
+1	azzeruole	Altro
+1	nette dalla buccia	Altro
+1	dal torsolo	Altro
+1	rose al netto	Altro
+1	breton	Altro
+1	more	Altro
+1	calce viva	Altro
+1	bianca	Altro
+1	come io la preferisco	Altro
+1	uva ammostatela	Altro
+1	spremetene il mosto	Altro
+1	senapa bianca	Altro
+1	pesche cotogne	Verdure e frutta
+1	fagiuoli sgranati	Altro
+1	grumolino dei carciofi	Verdure e frutta
+1	quarto di cipolla novellina	Verdure e frutta
+1	barbabietole	Altro
+1	fagiuolini	Altro
+1	tartufo o	Altro
+1	chifels	Altro
+1	fumetto	Altro
+1	lampone	Altro
+1	nette dal guscio	Altro
+1	pesche burrone	Base
+1	compreso il nocciolo	Altro
+1	albicocche saporose	Verdure e frutta
+1	naselli	Altro
+1	tra prezzemolo	Verdure e frutta
+1	fagiuoli bianchi	Altro
+1	cavolo cappuccio	Verdure e frutta
+1	altrettante	Altro
+1	pepolino	Altro
+1	cotenne di carnesecca	Carne e pesce
+1	spirito forte	Altro
+1	baccello di vainiglia	Altro
+1	cannella regina	Base
+1	china peruviana contusa	Altro
+1	sugo di tre aranci	Altro
+1	zucca rossa candita	Verdure e frutta
+1	marroni	Altro
+1	the del più buono	Altro
+1	messo nel latte	Base
+1	potete sciogliere al fuoco	Altro
+1	e servitelo	Altro
+1	cacio parmigiano	Formaggi e salumi
+1	ombrina	Altro
+1	pastine	Altro
+1	telline col guscio	Altro
+1	tinche	Altro
+1	odore della noce moscata	Base
+1	sarde	Altro
+1	detto finocchio novellino	Verdure e frutta
+1	gialle	Altro
+1	compreso i rognoni	Altro
+1	sedano lungo un palmo	Verdure e frutta
+1	petto di cappone	Altro
+1	cervello d'agnello	Carne e pesce
+1	pappa fatta	Altro
+1	cesto di lattuga	Verdure e frutta
+1	erbaggi di qualità diverse	Altro
+1	cavolo verzotto	Verdure e frutta
+1	bietola od altro	Verdure e frutta
+1	cervello di vitella	Altro
+1	o di agnello	Carne e pesce
+1	di manzo nella coscia	Carne e pesce
+1	sugo della carne	Carne e pesce
+1	cervello di agnello	Carne e pesce
+1	al bisogno	Altro
+1	niente	Altro
+1	metà cacio raviggiolo	Altro
+1	condito	Altro
+1	e colla lunetta	Altro
+1	frammiste a qualche pinolo	Altro
+1	o zucca candita	Verdure e frutta
+1	conserva di frutte	Altro
+1	ammoniaca	Altro
+1	in polvere	Altro
+1	scorza di limone	Verdure e frutta
+1	semolino di grana mezzana	Pasta, riso, pane
+1	focaccia rafferma	Altro
+1	spezie composte di cannella	Base
+1	garofani	Altro
+1	macis	Altro
+1	cipro	Altro
+1	latte o	Base
+1	ossia strutto	Base
+1	odore della scorza d'arancio	Altro
+1	detta di patate	Verdure e frutta
+1	pinoli all'ingrosso	Legumi e frutta secca
+1	cedro candito a filetti	Base
+1	odore che più aggradite	Altro
+1	loro peso	Altro
+1	compreso il guscio	Altro
+1	altrettanto zucchero	Base
+1	altrettanta farina	Base
+1	buccia d'arancio	Altro
+1	appena	Altro
+1	pesce lesso	Carne e pesce
+1	o marsala	Base
+1	diverse cucchiaiate d'acqua	Base
+1	regamo	Altro
+1	piselli verdi	Legumi e frutta secca
+1	baccalà ammollito	Carne e pesce
+1	schiena	Altro
+1	milza di castrato	Altro
+1	baccalà polputo	Carne e pesce
+1	caviale	Altro
+1	quarto di una cipolla	Verdure e frutta
+1	palla di tartufi neri	Altro
+1	starna	Altro
+1	battuto di cipolla	Verdure e frutta
+1	allodola	Altro
+1	lepre	Altro
+1	senza testa	Altro
+1	zampucci	Altro
+1	detto	Altro
+1	di lepre senz'osso	Altro
+1	braciuola senz'osso	Altro
+1	tutta	Altro
+1	altro della carne	Carne e pesce
+1	altro prosciutto	Formaggi e salumi
+1	capperi strizzati dall'aceto	Base
+1	detto di maiale	Carne e pesce
+1	petto di pollastra	Altro
+1	agro di mezzo limone	Verdure e frutta
+1	presa di pepe olio	Base
+1	polpa di tre olive	Verdure e frutta
+1	inzuppata nell'aceto	Base
+1	carne tutta lessa	Carne e pesce
+1	netta	Altro
+1	cedro candito a pezzettini	Base
+1	sugo depurato	Altro
+1	ossia di castagne	Legumi e frutta secca
+1	marroni sani	Altro
+1	trentina	Altro
+1	rosolio di cedro	Base
+1	diverse conserve di frutta	Verdure e frutta
+1	odore della vainiglia	Altro
+1	conserva di albicocche	Verdure e frutta
+1	detta di cotogne	Altro
+1	d'arnione di castrato	Altro
+1	detta passolina	Altro
+1	savoiardi lunghi	Pasta, riso, pane
+1	senza gambo	Altro
+1	pangrattato di segala	Pasta, riso, pane
+1	o fior di latte	Base
+1	rosolio maraschino	Altro
+1	cacio gruiera	Altro
+1	o di coriandoli	Altro
+1	o di caffè	Base
+1	pesche spicche	Verdure e frutta
+1	amido ridotto	Base
+1	sangue di maiale disfatto	Carne e pesce
+1	sapa	Altro
+1	pangrattato finissimo	Pasta, riso, pane
+1	marroni dei più	Altro
+1	maraschino	Altro
+1	albicocche poco	Verdure e frutta
+1	perine poco	Altro
+1	alkermes	Altro
+1	arancio dolce	Altro
+1	fragole molto rosse	Verdure e frutta
+1	siroppo	Altro
+1	fontina	Formaggi e salumi
+1	netta dalla corteccia	Altro
+1	pollastra del peso	Altro
+1	vuota	Altro
+1	odoroso	Altro
+1	compreso l'osso	Altro
+1	piccione giovane	Altro
+1	fette di prosciutto	Formaggi e salumi
+1	coccole di ginepro	Verdure e frutta
+1	cotenne di lardone	Altro
+1	ritagli di carne	Carne e pesce
+1	tolto dallo scannello	Altro
+1	e mancando questo	Altro
+1	bracioline di vitella	Altro
+1	midollo di vitella	Altro
+1	carne suddetta	Carne e pesce
+1	lombo di maiale	Carne e pesce
+1	rete di maiale	Carne e pesce
+1	midollo	Altro
+1	zampa senz'osso	Altro
+1	metà di una cipolla	Verdure e frutta
+1	pappa non liquida	Altro
+1	altro burro	Base
+1	o latte buonissimo	Base
+1	e i loro ventrigli	Altro
+1	fagiuoli	Altro
+1	tra prima	Altro
+1	privo delle foglie	Altro
+1	gambo	Altro

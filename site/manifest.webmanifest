@@ -1,0 +1,15 @@
+{
+  "name": "Dispensa – ricette dai tuoi ingredienti",
+  "short_name": "Dispensa",
+  "description": "Scegli gli ingredienti che hai in casa e trova le ricette che puoi preparare.",
+  "lang": "it",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fbf6ee",
+  "theme_color": "#d94f2b",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

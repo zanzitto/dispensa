@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dispensa – ricette dai tuoi ingredienti</title>
+<meta name="description" content="Scegli gli ingredienti che hai in casa e trova subito le ricette che puoi preparare. Funziona anche senza connessione.">
+<meta name="theme-color" content="#d94f2b">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="stylesheet" href="css/style.css">
+<script>
+  /* Impostazioni modificabili del sito */
+  window.DISPENSA_CONFIG = {
+    adsEnabled: false,     // metti true quando inserisci il codice pubblicitario in #ad-slot
+    pageSize: 30,          // ricette mostrate per volta nei risultati
+    contactEmail: ''       // opzionale: mostrato nella pagina Info
+  };
+</script>
+</head>
+<body>
+<div id="app" aria-live="polite"><p class="loading">Caricamento delle ricette…</p></div>
+<nav id="nav" aria-label="Navigazione principale">
+  <a href="#/" data-nav="cerca"><b aria-hidden="true">🔍</b>Cerca</a>
+  <a href="#/preferiti" data-nav="preferiti"><b aria-hidden="true">♥</b>Preferiti</a>
+  <a href="#/info" data-nav="info"><b aria-hidden="true">ℹ️</b>Info</a>
+</nav>
+<noscript><p class="loading">Questo sito ha bisogno di JavaScript per funzionare.</p></noscript>
+<script src="js/search.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

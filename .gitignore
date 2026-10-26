@@ -1,0 +1,8 @@
+# duplicato del pacchetto di passaggio (resta HANDOFF.md)
+dispensa-handoff/
+# copia PDF di Liber Liber: la fonte usata e' il testo Wikisource
+*.pdf
+# file locali
+.claude/
+node_modules/
+*.log
