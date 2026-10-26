@@ -30,6 +30,7 @@ MIN_INGREDIENTS = 2
 
 LICENSE_WB = "CC BY-SA 4.0 - Wikibooks italiano (autori: cronologia della pagina)"
 LICENSE_AR = "Pubblico dominio - Pellegrino Artusi (trascrizione Wikisource)"
+LICENSE_WB_EN = "CC BY-SA 4.0 - Wikibooks inglese (traduzione automatica)"
 
 
 # ---------------------------------------------------------------- utilita' testo
@@ -157,7 +158,7 @@ ALIASES = [
     (r"^(?:passata|salsa|polpa|sugo) di pomodor\w*$|^passata$|^pelati$|^pomodor\w* pelat\w*$|^polpa pomodor\w*$|^salsa di pomodor\w*$", "passata di pomodoro"),
     (r"^(?:concentrato|conserva|estratto) di pomodor\w*$", "concentrato di pomodoro"),
     (r"^(?:uov[oa]|uova)( .*)?$|^tuorl\w+( .*)?$|^ross[io] d.?uov\w*( .*)?$|^albume\w*( .*)?$|^albumi( .*)?$|^chiar[ae]( d.?uov\w*)?$", "uova"),
-    (r"^vainigli\w*|^vanigli\w*|^vanillin\w*$", "vaniglia"),
+    (r"^vainigli\w*|^vanigli\w*|^vanillin\w*$|^estratto di vaniglia$|^essenza di vaniglia$", "vaniglia"),
     (r"^(?:rhum|rum)( .*)?$", "rum"),
     (r"^presa( di sale)?$", "sale"),
     (r"^formaggio (?:grana|parmigiano)\b.*$|^gr?formaggio parmigiano.*$", "parmigiano"),
@@ -314,7 +315,7 @@ def clean_piece(p):
                 w in UNITS_AMBIGUOUS and nxt.startswith("d'")):
             popped = True
             i += 1
-        elif popped and w in CONNECTORS:
+        elif popped and (w in CONNECTORS or w == "da"):
             i += 1
         else:
             break
@@ -476,6 +477,25 @@ def parse_artusi(rows, stats):
     return recipes
 
 
+def parse_translated(paths, stats):
+    """Ricette del Cookbook inglese, gia' tradotte da scripts/translate_en.py."""
+    recipes = []
+    for path in paths:
+        for rec in read_jsonl(path):
+            if rec.get("skip"):
+                stats["en: senza ingredienti/procedura"] += 1
+                continue
+            steps = "\n".join(rec["steps"])
+            if not steps or len(rec["ing"]) < 2:
+                stats["en: vuota dopo la traduzione"] += 1
+                continue
+            recipes.append({
+                "source": "wikibooks-en", "title": rec["title"].strip(), "course": rec["course"],
+                "servings": rec.get("servings"), "steps": steps, "url": rec["url"],
+                "license": LICENSE_WB_EN, "ing_lines": rec["ing"]})
+    return recipes
+
+
 # ---------------------------------------------------------------- unione e scrittura
 
 def merge_plurals(counts):
@@ -511,6 +531,7 @@ def main():
     stats = collections.Counter()
     recipes = parse_wikibooks(read_jsonl(RAW / "wikibooks-it" / "pages.jsonl"), stats)
     recipes += parse_artusi(read_jsonl(RAW / "artusi" / "pages.jsonl"), stats)
+    recipes += parse_translated(sorted((ROOT / "data" / "translated").glob("wikibooks-en-it.*.jsonl")), stats)
     print("ricette lette dalle fonti:", len(recipes))
 
     # per mostrare gli accenti: parola senza accento -> forma accentata piu' usata

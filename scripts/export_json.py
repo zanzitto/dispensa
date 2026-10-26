@@ -22,8 +22,18 @@ SOURCES = {
         "url": "https://it.wikibooks.org/wiki/Libro_di_cucina",
         "licenza": "CC BY-SA 4.0",
         "licenza_url": "https://creativecommons.org/licenses/by-sa/4.0/deed.it",
+        "passi": "lista",
+    },
+    "wikibooks-en": {
+        "nome": "Wikibooks inglese - Cookbook (traduzione automatica in italiano)",
+        "url": "https://en.wikibooks.org/wiki/Cookbook:Table_of_Contents",
+        "licenza": "CC BY-SA 4.0",
+        "licenza_url": "https://creativecommons.org/licenses/by-sa/4.0/deed.it",
+        "passi": "lista",
+        "auto": True,
     },
     "artusi": {
+        "passi": "prosa",
         "nome": "Pellegrino Artusi - La scienza in cucina e l'arte di mangiar bene (trascrizione Wikisource)",
         "url": "https://it.wikisource.org/wiki/Scienza_in_cucina_e_l%27arte_di_mangiar_bene",
         "licenza": "Pubblico dominio",

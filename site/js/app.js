@@ -23,7 +23,8 @@
     course: '',
     shown: PAGE,
     q: '',
-    expanded: {}                 // categorie aperte nella schermata Cerca
+    expanded: {},                // categorie aperte nella schermata Cerca
+    lastFav: null
   };
 
   // ---------- utilita' ----------
@@ -34,23 +35,63 @@
   var EMOJI = [
     [/pizza/i, '🍕'], [/torte? dolc|torta|crostat/i, '🎂'], [/biscott|pasticcini/i, '🍪'],
     [/dolc|dessert|creme|budini|pasticc/i, '🍰'], [/gelat|sorbett/i, '🍨'], [/liquor|bevand|cocktail/i, '🍹'],
-    [/primi|minestr|pasta|riso|gnocchi/i, '🍝'], [/zupp|brod|passati/i, '🍲'], [/uov|frittat/i, '🍳'],
-    [/pesc|frutti di mare|crostacei/i, '🐟'], [/arrost|second|carne|lesso|umido|fritt|bolliti/i, '🍖'],
-    [/contorn|verdur|insalat|legum/i, '🥦'], [/antipast|stuzzich/i, '🥗'], [/sals|condiment/i, '🥫'],
+    [/colazion/i, '🥞'], [/primi|minestr|pasta|riso|gnocchi/i, '🍝'], [/zupp|brod|passati/i, '🍲'],
+    [/uov|frittat/i, '🍳'], [/pesc|frutti di mare|crostacei/i, '🐟'],
+    [/arrost|second|carne|lesso|umido|fritt|bolliti/i, '🍖'], [/insalat/i, '🥗'],
+    [/contorn|verdur|legum/i, '🥦'], [/antipast|stuzzich/i, '🥟'], [/sals|condiment/i, '🥫'],
     [/pane|focacc/i, '🍞'], [/unic/i, '🍲']
   ];
   function emojiFor(course) {
     for (var i = 0; i < EMOJI.length; i++) if (EMOJI[i][0].test(course)) return EMOJI[i][1];
     return '🍽️';
   }
+  var HUES = [
+    [/dolc|torte|biscott|dessert|creme|gelat|budin/i, 335], [/zupp|brod/i, 22], [/primi|pasta|minestr|riso|gnocchi/i, 38],
+    [/second|carne|arrost|lesso|umido|fritt/i, 10], [/insalat|contorn|verdur|legum/i, 125], [/antipast/i, 85],
+    [/pesc/i, 200], [/bevand|liquor/i, 275], [/pane|pizza|focacc/i, 42], [/sals/i, 4], [/uov|colazion/i, 50]
+  ];
+  function hueFor(course) {
+    for (var i = 0; i < HUES.length; i++) if (HUES[i][0].test(course)) return HUES[i][1];
+    return 30;
+  }
+
+  var ING_EMOJI = [
+    [/^uov/, '🥚'], [/^latte|^panna|^yogurt/, '🥛'], [/^burro/, '🧈'], [/^farina|^semolino|^amido/, '🌾'],
+    [/^zucchero|^candito/, '🍬'], [/^miele/, '🍯'], [/^lievito/, '🍞'], [/^cipoll|^scalogno|^porr/, '🧅'],
+    [/^aglio/, '🧄'], [/^pomodor|^passata/, '🍅'], [/^patat/, '🥔'], [/^carot/, '🥕'], [/^peperoncin/, '🌶️'],
+    [/^peperon/, '🫑'], [/^fung/, '🍄'], [/^limon/, '🍋'], [/^aranc/, '🍊'], [/^mel[ae]$/, '🍎'], [/^per[ae]$/, '🍐'],
+    [/^banan/, '🍌'], [/^fragol/, '🍓'], [/^ciliegi/, '🍒'], [/^uva|^uvetta/, '🍇'], [/^pesch/, '🍑'],
+    [/^ananas/, '🍍'], [/^cocco/, '🥥'], [/^avocado/, '🥑'], [/^melanzan/, '🍆'], [/^mais/, '🌽'], [/^zucca/, '🎃'],
+    [/^broccol|^cavolfiore|^verza|^cavol/, '🥦'], [/^insalat|^lattuga|^rucola|^spinaci|^bietol/, '🥬'],
+    [/^cetriol|^zucchin/, '🥒'], [/^oliv|^olio/, '🫒'], [/^noci$|^nocciol|^mandorl|^pinoli|^pistacch|^arachid|^castagn/, '🥜'],
+    [/^pane|^pangrattato|^panini/, '🍞'], [/^pasta|^spaghetti|^penne|^tagliatell/, '🍝'], [/^riso/, '🍚'],
+    [/formaggio|^parmigiano|^pecorino|^mozzarella|^ricotta|^mascarpone|^grana|^gorgonzola|^provola|^fontina/, '🧀'],
+    [/^prosciutto|^pancetta|^guanciale|^salsiccia|^bacon|^speck|^salame|^mortadella/, '🥓'], [/^pollo|^tacchino/, '🍗'],
+    [/^manzo|^vitello|^maiale|^agnello|^carne|^coniglio|^bistecca/, '🥩'],
+    [/^tonno|^salmone|^merluzzo|^acciughe|^pesce|^baccala|^sogliola|^trota/, '🐟'],
+    [/^gamberi|^scampi|^cozze|^vongole|^calamari|^seppie|^polpo/, '🦐'], [/^ciocc|^cacao/, '🍫'],
+    [/^vino|^marsala|^rum$|^grappa|^cognac/, '🍷'], [/^caffe/, '☕'], [/^birra/, '🍺'],
+    [/^basilic|^prezzemol|^rosmarin|^salvia|^menta|^origano|^timo|^alloro|^maggiorana/, '🌿'],
+    [/^sale|^pepe|^spezie|^cannella|^noce moscata|^zafferano|^chiodi|^cumino|^zenzero/, '🧂'],
+    [/^fagioli|^ceci|^lenticchie|^piselli|^fave/, '🫘'], [/^brodo/, '🍲'], [/^vaniglia/, '🍦'], [/^aceto/, '🍶']
+  ];
+  function ingEmoji(g) {
+    for (var i = 0; i < ING_EMOJI.length; i++) if (ING_EMOJI[i][0].test(g.k)) return ING_EMOJI[i][1];
+    return '';
+  }
+
+  var ICON = {
+    search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'
+  };
 
   function ingName(id) { var g = state.index.ingById.get(id); return g ? g.n : ''; }
   function isFav(id) { return state.fav.indexOf(id) >= 0; }
 
   // ---------- pezzi di pagina ----------
   function chip(g, on) {
+    var em = ingEmoji(g);
     return '<button class="chip' + (on ? ' on' : '') + '" data-t="' + g.id + '" aria-pressed="' + !!on + '">' +
-      esc(g.n) + (on ? '<span class="x" aria-hidden="true">×</span>' : '') + '</button>';
+      (em ? '<i aria-hidden="true">' + em + '</i>' : '') + esc(g.n) + (on ? '<span class="x" aria-hidden="true">×</span>' : '') + '</button>';
   }
 
   function badge(m) {
@@ -59,13 +100,17 @@
     return '<span class="badge b-no">Ti manca: ' + esc(names) + '</span>';
   }
 
+  function heart(id, cls) {
+    var on = isFav(id), pop = state.lastFav === id ? ' pop' : '';
+    return '<button class="' + cls + (on && cls === 'ib' ? ' on' : '') + pop + '" data-f="' + id + '" aria-label="' +
+      (on ? 'Togli dai preferiti' : 'Aggiungi ai preferiti') + '" aria-pressed="' + on + '">' + (on ? '♥' : '♡') + '</button>';
+  }
+
   function card(r, m) {
-    var meta = esc(r.c) + (r.sv ? ' · ' + plural(r.sv, 'persona', 'persone') : '');
+    var meta = esc(r.c) + ' · ' + plural(r.i.length, 'ingrediente', 'ingredienti');
     return '<div class="card"><a class="card-main" href="#/ricetta/' + r.id + '">' +
-      '<div class="em" aria-hidden="true">' + emojiFor(r.c) + '</div><div class="ci"><b>' + esc(r.t) + '</b>' +
-      '<span class="meta">' + meta + '</span>' + (m ? '<br>' + badge(m) : '') + '</div></a>' +
-      '<button class="heart" data-f="' + r.id + '" aria-label="' + (isFav(r.id) ? 'Togli dai preferiti' : 'Aggiungi ai preferiti') +
-      ': ' + esc(r.t) + '" aria-pressed="' + isFav(r.id) + '">' + (isFav(r.id) ? '♥' : '♡') + '</button></div>';
+      '<div class="em" style="--h:' + hueFor(r.c) + '" aria-hidden="true">' + emojiFor(r.c) + '</div><div class="ci"><b>' + esc(r.t) + '</b>' +
+      '<span class="meta">' + meta + '</span>' + (m ? '<br>' + badge(m) : '') + '</div></a>' + heart(r.id, 'heart') + '</div>';
   }
 
   function adSlot() {
@@ -76,11 +121,17 @@
   function viewSearch() {
     var ix = state.index, data = ix.data;
     var sel = state.sel.map(function (id) { return ix.ingById.get(id); }).filter(Boolean);
-    var h = '<header class="top"><h1>🍅 Dispensa</h1><p class="sub">Scegli gli ingredienti che hai in casa e trova le ricette.</p></header>' +
-      '<div class="search"><input id="q" type="search" placeholder="Cerca un ingrediente…" autocomplete="off" ' +
+    var h = '<section class="hero"><h1>Dispensa</h1><p>Dimmi cosa hai in casa, ti dico cosa cucinare.</p>' +
+      '<div class="stats"><span class="pill">' + plural(data.recipes.length, 'ricetta', 'ricette') + '</span>' +
+      '<span class="pill">Funziona offline</span><span class="pill">Gratis</span></div></section>' +
+      '<div class="search">' + ICON.search + '<input id="q" type="search" placeholder="Cerca un ingrediente…" autocomplete="off" ' +
       'autocapitalize="none" enterkeyhint="search" aria-label="Cerca un ingrediente" value="' + esc(state.q) + '"></div>' +
       '<div class="chips" id="sug"></div>' +
-      '<div class="sec"><span>I tuoi ingredienti</span>' +
+      '<div class="quick"><button class="btn" data-a="surprise">🎲 Sorprendimi</button></div>';
+    if (!sel.length) {
+      h += '<div class="steps3"><div><b>🥕</b>Scegli cosa hai</div><div><b>🔍</b>Cerca le ricette</div><div><b>🍳</b>Cucina!</div></div>';
+    }
+    h += '<div class="sec"><span>I tuoi ingredienti</span>' +
       (sel.length ? '<button class="link" data-a="clear">Svuota</button>' : '') + '</div>' +
       (sel.length ? '<div class="chips">' + sel.map(function (g) { return chip(g, true); }).join('') + '</div>'
         : '<p class="empty">Ancora nessuno. Scrivili qui sopra o toccali qui sotto.</p>');
@@ -105,21 +156,29 @@
 
   function viewResults() {
     var ix = state.index;
-    var res = D.search(ix, state.sel, state.mode, state.course);
+    var all = D.search(ix, state.sel, state.mode, '');
+    var counts = {};
+    all.forEach(function (m) { counts[m.r.c] = (counts[m.r.c] || 0) + 1; });
+    if (state.course && !counts[state.course]) state.course = '';
+    var res = state.course ? all.filter(function (m) { return m.r.c === state.course; }) : all;
     var sel = state.sel.map(function (id) { return ix.ingById.get(id); }).filter(Boolean);
+    var courses = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a]; });
     var h = '<div class="bar"><a class="ib" href="#/" aria-label="Indietro">←</a><h2>' +
       plural(res.length, 'ricetta', 'ricette') + '</h2></div>' +
       '<div class="chips">' + sel.map(function (g) { return chip(g, true); }).join('') + '</div>' +
       '<div class="seg" role="group" aria-label="Modalità di ricerca">' +
       '<button data-m="all" class="' + (state.mode === 'all' ? 'on' : '') + '">Con tutti i miei ingredienti</button>' +
-      '<button data-m="near" class="' + (state.mode === 'near' ? 'on' : '') + '">Quasi pronte</button></div>' +
-      '<div class="filter"><select data-a="course" aria-label="Tipo di piatto"><option value="">Tutti i piatti</option>' +
-      ix.courses.map(function (c) {
-        return '<option value="' + esc(c) + '"' + (c === state.course ? ' selected' : '') + '>' + esc(c) + '</option>';
-      }).join('') + '</select></div>';
+      '<button data-m="near" class="' + (state.mode === 'near' ? 'on' : '') + '">Quasi pronte</button></div>';
+    if (courses.length > 1) {
+      h += '<div class="scroller" role="group" aria-label="Tipo di piatto"><button class="chip' + (state.course ? '' : ' on') +
+        '" data-course="">Tutti <small>' + all.length + '</small></button>' + courses.map(function (c) {
+          return '<button class="chip' + (c === state.course ? ' on' : '') + '" data-course="' + esc(c) + '"><i aria-hidden="true">' +
+            emojiFor(c) + '</i>' + esc(c) + ' <small>' + counts[c] + '</small></button>';
+        }).join('') + '</div>';
+    }
     if (!res.length) {
-      h += '<p class="empty">Nessuna ricetta trovata. Prova a togliere un ingrediente' +
-        (state.mode === 'all' ? ' o passa a “Quasi pronte”' : '') + '.</p>';
+      h += '<div class="emptybox"><div class="big">🥣</div><p>Nessuna ricetta trovata.<br>Prova a togliere un ingrediente' +
+        (state.mode === 'all' ? ' o passa a “Quasi pronte”' : '') + '.</p></div>';
     } else {
       h += res.slice(0, state.shown).map(function (m) { return card(m.r, m); }).join('');
       if (res.length > state.shown) {
@@ -133,9 +192,9 @@
   function viewFavorites() {
     var ix = state.index;
     var list = state.fav.map(function (id) { return ix.byId.get(id); }).filter(Boolean);
-    return '<header class="top"><h1>♥ Preferiti</h1></header>' +
+    return '<header class="top"><h1>♥ Preferiti</h1><p class="sub">Le ricette che hai salvato.</p></header>' +
       (list.length ? list.map(function (x) { return card(x.r, null); }).join('')
-        : '<p class="empty">Tocca il cuore su una ricetta per salvarla qui. I preferiti restano sul tuo dispositivo.</p>');
+        : '<div class="emptybox"><div class="big">♡</div><p>Tocca il cuore su una ricetta per salvarla qui.<br>I preferiti restano sul tuo dispositivo.</p></div>');
   }
 
   function viewDetail(id) {
@@ -154,19 +213,21 @@
       return '<li' + (cls ? ' class="' + cls + '"' : '') + '>' + esc(l.text) + '</li>';
     }).join('');
     var steps = r.st.split('\n').filter(Boolean);
-    var stepsHtml = r.src === 'wikibooks'
-      ? '<ol>' + steps.map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('') + '</ol>'
-      : steps.map(function (s) { return '<p>' + esc(s) + '</p>'; }).join('');
     var src = ix.data.sources[r.src] || {};
+    var stepsHtml = src.passi === 'prosa'
+      ? '<div class="prose">' + steps.map(function (s) { return '<p>' + esc(s) + '</p>'; }).join('') + '</div>'
+      : '<ol class="stepcards">' + steps.map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('') + '</ol>';
     return '<div class="bar"><button class="ib" data-a="back" aria-label="Indietro">←</button><span style="flex:1"></span>' +
-      '<button class="ib" data-f="' + r.id + '" aria-label="Preferito" aria-pressed="' + isFav(r.id) + '">' +
-      (isFav(r.id) ? '♥' : '♡') + '</button></div>' +
-      '<article class="detail"><div class="big" aria-hidden="true">' + emojiFor(r.c) + '</div><h2>' + esc(r.t) + '</h2>' +
-      '<div class="meta">' + esc(r.c) + (r.sv ? ' · per ' + plural(r.sv, 'persona', 'persone') : '') + '</div>' +
-      '<div class="actions"><button class="btn" data-a="share" data-id="' + r.id + '">Condividi</button></div>' +
-      '<h3>Ingredienti</h3>' + (selected.size ? '<p class="meta"><span class="have">Verde</span>: ce l’hai · <span class="miss">arancione</span>: ti manca</p>' : '') +
-      '<ul>' + items + '</ul><h3>Procedimento</h3>' + stepsHtml +
-      '<div class="credit">Fonte: <a href="' + esc(r.u) + '" target="_blank" rel="noopener">' + esc(src.nome || r.src) +
+      heart(r.id, 'ib') + '</div>' +
+      '<div class="cover" style="--h:' + hueFor(r.c) + '"><div class="big" aria-hidden="true">' + emojiFor(r.c) + '</div></div>' +
+      '<article class="detail"><h2>' + esc(r.t) + '</h2><div class="tags"><span class="tag">' + esc(r.c) + '</span>' +
+      (r.sv ? '<span class="tag">per ' + plural(r.sv, 'persona', 'persone') + '</span>' : '') +
+      '<span class="tag">' + plural(lines.length, 'ingrediente', 'ingredienti') + '</span></div>' +
+      '<div class="actions"><button class="btn pri" data-a="share" data-id="' + r.id + '">Condividi</button></div>' +
+      '<h3>Ingredienti</h3>' + (selected.size ? '<p class="legend"><span class="have">✓ ce l’hai</span> · <span class="miss">+ ti manca</span></p>' : '') +
+      '<ul class="ing">' + items + '</ul><h3>Procedimento</h3>' + stepsHtml +
+      '<div class="credit">' + (src.auto ? '<span class="auto">Tradotta automaticamente dall’inglese</span><br>' : '') +
+      'Fonte: <a href="' + esc(r.u) + '" target="_blank" rel="noopener">' + esc(src.nome || r.src) +
       '</a> · Licenza: ' + esc(src.licenza || '') + '</div></article>' + adSlot();
   }
 
@@ -181,10 +242,12 @@
       '<h2>Fonti e licenze</h2><p>Le ricette provengono da opere libere. Grazie agli autori e ai volontari che le hanno scritte.</p><ul>';
     Object.keys(src).forEach(function (k) {
       h += '<li><a href="' + esc(src[k].url) + '" target="_blank" rel="noopener">' + esc(src[k].nome) + '</a> – ' +
-        '<a href="' + esc(src[k].licenza_url) + '" target="_blank" rel="noopener">' + esc(src[k].licenza) + '</a></li>';
+        '<a href="' + esc(src[k].licenza_url) + '" target="_blank" rel="noopener">' + esc(src[k].licenza) + '</a>' +
+        (src[k].auto ? ' (tradotta automaticamente)' : '') + '</li>';
     });
     h += '</ul><p>Ogni ricetta rimanda alla pagina originale, dove si vede l’elenco degli autori. ' +
-      'I testi di Wikibooks sono stati ripuliti e riorganizzati; restano sotto licenza CC BY-SA 4.0.</p>' +
+      'I testi di Wikibooks sono stati ripuliti e riorganizzati; restano sotto licenza CC BY-SA 4.0. ' +
+      'Le ricette tradotte dall’inglese possono contenere errori di traduzione.</p>' +
       '<h2>Privacy</h2><p>L’app non raccoglie dati personali. Preferiti e ingredienti scelti restano salvati solo sul tuo dispositivo.</p>' +
       (CFG.contactEmail ? '<h2>Contatti</h2><p><a href="mailto:' + esc(CFG.contactEmail) + '">' + esc(CFG.contactEmail) + '</a></p>' : '') +
       '<p class="meta">Versione dati: ' + esc(state.index.data.version) + '</p></div>';
@@ -223,6 +286,7 @@
     else if (r.name === 'info') h = viewInfo();
     else h = viewSearch();
     app.innerHTML = h;
+    state.lastFav = null;
     Array.prototype.forEach.call(document.querySelectorAll('#nav a'), function (a) {
       a.classList.toggle('on', a.getAttribute('data-nav') === r.nav);
     });
@@ -241,7 +305,7 @@
   }
   function toggleFav(id) {
     var i = state.fav.indexOf(id);
-    if (i < 0) state.fav.push(id); else state.fav.splice(i, 1);
+    if (i < 0) { state.fav.push(id); state.lastFav = id; } else state.fav.splice(i, 1);
     save('fav', state.fav);
   }
   function share(id) {
@@ -250,24 +314,27 @@
     if (navigator.share) { navigator.share({ title: x.r.t, text: x.r.t + ' – Dispensa', url: url }).catch(function () {}); return; }
     if (navigator.clipboard) navigator.clipboard.writeText(url).then(function () { alert('Link copiato'); });
   }
+  function surprise() {
+    var all = state.index.recipes;
+    location.hash = '#/ricetta/' + all[Math.floor(Math.random() * all.length)].r.id;
+  }
 
   app.addEventListener('click', function (e) {
-    var t = e.target.closest('[data-t],[data-f],[data-a],[data-m]');
+    var t = e.target.closest('[data-t],[data-f],[data-a],[data-m],[data-course]');
     if (!t) return;
     if (t.dataset.f) { toggleFav(parseInt(t.dataset.f, 10)); render(true); return; }
     if (t.dataset.t) { toggleIngredient(parseInt(t.dataset.t, 10)); render(true); return; }
     if (t.dataset.m) { state.mode = t.dataset.m; state.shown = PAGE; save('mode', state.mode); render(true); return; }
+    if (t.hasAttribute('data-course')) { state.course = t.dataset.course; state.shown = PAGE; render(true); return; }
     switch (t.dataset.a) {
       case 'go': location.hash = '#/risultati'; break;
       case 'clear': state.sel = []; state.q = ''; save('sel', state.sel); render(true); break;
       case 'expand': state.expanded[t.dataset.c] = !state.expanded[t.dataset.c]; render(true); break;
       case 'more': state.shown += PAGE; render(true); break;
       case 'share': share(parseInt(t.dataset.id, 10)); break;
+      case 'surprise': surprise(); break;
       case 'back': if (history.length > 1) history.back(); else location.hash = '#/'; break;
     }
-  });
-  app.addEventListener('change', function (e) {
-    if (e.target.dataset.a === 'course') { state.course = e.target.value; state.shown = PAGE; render(true); }
   });
   app.addEventListener('input', function (e) {
     if (e.target.id === 'q') { state.q = e.target.value; updateSuggestions(); }
