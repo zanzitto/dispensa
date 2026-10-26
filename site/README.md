@@ -28,10 +28,10 @@ Per aggiungere una fonte: salvala in `data/raw/`, aggiungi il parser in `build_d
 
 ## Pubblicità (solo nell'app)
 Il modulo `js/ads.js` gestisce gli annunci AdMob. Sul sito web resta spento.
-- **Provarlo sul sito**: apri `http://localhost:8080/?demoads=1` (annunci finti: banner, interstitial quando esci da una ricetta, video a premio nella pagina Info).
+- **Provarlo sul sito**: apri `http://localhost:8080/?demoads=1` (annunci finti: banner e interstitial quando esci da una ricetta).
 - **Nell'app**: installa il plugin (`npm i @capacitor-community/admob`), imposta `ads.enabled: true` e i tuoi codici in `index.html`. Finche' `testMode` e' `true` vedi solo annunci di prova di Google.
 - **Mai cliccare i tuoi annunci veri**: AdMob chiude l'account.
-- Limiti modificabili (`ads.limits`): un interstitial ogni 4 minuti e ogni 3 ricette, mai prima della quinta ricetta; premio del video = 24 ore senza annunci.
+- Limiti modificabili (`ads.limits`): un interstitial ogni 4 minuti e ogni 3 ricette, mai prima della quinta ricetta.
 - Prove della logica: `node scripts/test_ads.js`.
 
 ## Verso Play Store e App Store (Capacitor)

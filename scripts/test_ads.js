@@ -18,8 +18,6 @@ function setup(config, native = true) {
     showConsentForm: log('showConsentForm'), initialize: log('initialize'),
     showBanner: log('showBanner'), removeBanner: log('removeBanner'),
     prepareInterstitial: log('prepareInterstitial'), showInterstitial: log('showInterstitial'),
-    prepareRewardVideoAd: log('prepareRewardVideoAd'),
-    showRewardVideoAd: (...a) => { calls.push(['showRewardVideoAd', ...a]); if (handlers.onRewardedVideoAdReward) handlers.onRewardedVideoAdReward({}); return Promise.resolve({}); },
     addListener: (name, fn) => { handlers[name] = fn; return Promise.resolve({ remove() {} }); },
   };
   global.Capacitor = native ? { isNativePlatform: () => true, getPlatform: () => 'android', Plugins: { AdMob } } : undefined;
@@ -93,27 +91,10 @@ async function test(name, fn) { await fn(); n++; console.log('ok  -', name); }
     assert.strictEqual(shown(), 2, 'non due di fila');
   });
 
-  await test('video a premio: toglie banner e annunci per 24 ore, poi tornano', async () => {
+  await test('nessun modo di togliere gli annunci guardando un video', async () => {
     const t = setup({ enabled: true });
-    await t.ads.init(); await tick();
-    assert.strictEqual(t.ads.adsFree(), false);
-    assert.strictEqual(await t.ads.offerRemoval(), true);
-    assert.strictEqual(t.ads.adsFree(), true);
-    assert(t.names().includes('removeBanner'));
-    for (let i = 0; i < 10; i++) { t.ads.recipeOpened(); t.ads.maybeInterstitial(); }
-    assert(!t.names().includes('showInterstitial'), 'nessun interstitial senza annunci');
-    assert(/h|min/.test(t.ads.remainingText()));
-    now += 25 * 3600 * 1000;
-    assert.strictEqual(t.ads.adsFree(), false);
-  });
-
-  await test('se il video non viene guardato fino in fondo, niente premio', async () => {
-    const t = setup({ enabled: true });
-    await t.ads.init(); await tick();
-    const AdMob = global.Capacitor.Plugins.AdMob;
-    AdMob.showRewardVideoAd = () => Promise.resolve({});   // il premio non scatta
-    assert.strictEqual(await t.ads.offerRemoval(), false);
-    assert.strictEqual(t.ads.adsFree(), false);
+    assert.strictEqual(t.ads.offerRemoval, undefined);
+    assert.strictEqual(t.ads.adsFree, undefined);
   });
 
   await test('un errore del plugin non rompe l\'app', async () => {

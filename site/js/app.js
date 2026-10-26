@@ -86,17 +86,9 @@
 
   // annunci (attivi solo nell'app o in prova con ?demoads=1): vedi js/ads.js
   var Ads = window.DispensaAds || null;
-  function adsButton() {
-    if (!Ads || !Ads.available()) return '';
-    return Ads.adsFree()
-      ? '<span class="tag hot">🚫 Senza annunci ancora ' + esc(Ads.remainingText()) + '</span>'
-      : '<button class="btn" data-a="noads">🚫 Niente annunci</button>';
-  }
   function adsInfo() {
     if (!Ads || !Ads.available()) return '';
-    return '<h2>Annunci</h2><p>Dispensa è gratis grazie alla pubblicità. ' + (Ads.adsFree()
-      ? 'Per ora non vedi annunci: ancora ' + esc(Ads.remainingText()) + '.</p>'
-      : 'Se ti danno fastidio, guarda un breve video e li togli per 24 ore.</p><p><button class="btn pri" data-a="noads">📺 Guarda un video, niente annunci per 24 ore</button></p>');
+    return '<h2>Annunci</h2><p>Dispensa è gratis grazie alla pubblicità. Gli annunci a schermo intero compaiono solo quando esci da una ricetta, mai mentre la leggi.</p>';
   }
 
   function ingName(id) { var g = state.index.ingById.get(id); return g ? g.n : ''; }
@@ -143,7 +135,7 @@
       '<div class="search">' + ICON.search + '<input id="q" type="search" placeholder="Cerca un ingrediente…" autocomplete="off" ' +
       'autocapitalize="none" enterkeyhint="search" aria-label="Cerca un ingrediente" value="' + esc(state.q) + '"></div>' +
       '<div class="chips" id="sug"></div>' +
-      '<div class="quick"><button class="btn" data-a="surprise">🎲 Sorprendimi</button>' + adsButton() + '</div>';
+      '<div class="quick"><button class="btn" data-a="surprise">🎲 Sorprendimi</button></div>';
     if (!sel.length) {
       h += '<div class="steps3"><div><b>🥕</b>Scegli cosa hai</div><div><b>🔍</b>Cerca le ricette</div><div><b>🍳</b>Cucina!</div></div>';
     }
@@ -411,9 +403,6 @@
       case 'more': state.shown += PAGE; render(true); break;
       case 'share': share(parseInt(t.dataset.id, 10)); break;
       case 'surprise': surprise(); break;
-      case 'noads':
-        if (Ads && confirm('Guarda un breve video per togliere gli annunci per 24 ore?')) Ads.offerRemoval();
-        break;
       case 'back': if (history.length > 1) history.back(); else location.hash = '#/'; break;
     }
   });
@@ -450,10 +439,7 @@
       state.fav = state.fav.filter(function (id) { return state.index.byId.has(id); });
       render(false);
       trackRouteForAds();
-      if (Ads) {
-        Ads.onChange = function () { render(true); };
-        Ads.init();
-      }
+      if (Ads) Ads.init();
     }).catch(function () {
       app.innerHTML = '<p class="loading">Non riesco a caricare le ricette.<br>' +
         '<button class="btn" onclick="location.reload()">Riprova</button></p>';
@@ -461,7 +447,8 @@
   }
   start();
 
-  if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol)) {
+  var nativeApp = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
+  if ('serviceWorker' in navigator && !nativeApp && /^https?:$/.test(location.protocol)) {
     window.addEventListener('load', function () { navigator.serviceWorker.register('sw.js').catch(function () {}); });
   }
 })();

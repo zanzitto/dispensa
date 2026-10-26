@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Dispensa</string>
+    <string name="title_activity_main">Dispensa</string>
+    <string name="package_name">it.zanzitto.dispensa</string>
+    <string name="custom_url_scheme">it.zanzitto.dispensa</string>
+</resources>
