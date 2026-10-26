@@ -6,3 +6,7 @@ dispensa-handoff/
 .claude/
 node_modules/
 *.log
+
+# file temporanei di Python
+__pycache__/
+*.pyc
