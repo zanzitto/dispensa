@@ -121,7 +121,8 @@
   function viewSearch() {
     var ix = state.index, data = ix.data;
     var sel = state.sel.map(function (id) { return ix.ingById.get(id); }).filter(Boolean);
-    var h = '<section class="hero"><h1>Dispensa</h1><p>Dimmi cosa hai in casa, ti dico cosa cucinare.</p>' +
+    var h = '<section class="hero"><div class="floaters" aria-hidden="true"><span>🍅</span><span>🧄</span><span>🧀</span>' +
+      '<span>🥕</span><span>🍋</span></div><h1>Dispensa</h1><p>Dimmi cosa hai in casa, ti dico cosa cucinare!</p>' +
       '<div class="stats"><span class="pill">' + plural(data.recipes.length, 'ricetta', 'ricette') + '</span>' +
       '<span class="pill">Funziona offline</span><span class="pill">Gratis</span></div></section>' +
       '<div class="search">' + ICON.search + '<input id="q" type="search" placeholder="Cerca un ingrediente…" autocomplete="off" ' +
@@ -131,6 +132,7 @@
     if (!sel.length) {
       h += '<div class="steps3"><div><b>🥕</b>Scegli cosa hai</div><div><b>🔍</b>Cerca le ricette</div><div><b>🍳</b>Cucina!</div></div>';
     }
+    h += todayCard();
     h += '<div class="sec"><span>I tuoi ingredienti</span>' +
       (sel.length ? '<button class="link" data-a="clear">Svuota</button>' : '') + '</div>' +
       (sel.length ? '<div class="chips">' + sel.map(function (g) { return chip(g, true); }).join('') + '</div>'
@@ -148,6 +150,7 @@
       }
     });
 
+    h += courseTiles();
     var n = D.search(ix, state.sel, state.mode, '').length;
     h += '<div class="cta"><button data-a="go"' + (state.sel.length ? '' : ' disabled') + '>' +
       (state.sel.length ? 'Vedi ' + plural(n, 'ricetta', 'ricette') : 'Scegli almeno un ingrediente') + '</button></div>';
@@ -177,14 +180,65 @@
         }).join('') + '</div>';
     }
     if (!res.length) {
-      h += '<div class="emptybox"><div class="big">🥣</div><p>Nessuna ricetta trovata.<br>Prova a togliere un ingrediente' +
-        (state.mode === 'all' ? ' o passa a “Quasi pronte”' : '') + '.</p></div>';
+      h += '<div class="emptybox"><div class="big">🥣</div><p>Uh, nessuna ricetta trovata!<br>Prova a togliere un ingrediente' +
+        (state.mode === 'all' ? ' oppure guarda le ricette a cui manca solo una cosa.' : '.') + '</p>' +
+        (state.mode === 'all' ? '<button class="btn pri" data-m="near">Mostra “Quasi pronte”</button> ' : '') +
+        '<button class="btn" data-a="clear-go">Ricomincia</button></div>';
     } else {
       h += res.slice(0, state.shown).map(function (m) { return card(m.r, m); }).join('');
       if (res.length > state.shown) {
         h += '<button class="btn more" data-a="more">Mostra altre ricette (' + (res.length - state.shown) + ')</button>';
       }
       h += adSlot();
+    }
+    return h;
+  }
+
+  // ricetta del giorno: sempre la stessa per tutta la giornata, cambia a mezzanotte
+  function todayCard() {
+    var ix = state.index;
+    var pool = ix.recipes.filter(function (x) { return x.r.c !== 'Altro' && x.r.i.length >= 5 && x.r.i.length <= 12; });
+    if (!pool.length) pool = ix.recipes;
+    var d = new Date(), day = Math.floor(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 864e5);
+    var r = pool[day % pool.length].r;
+    return '<a class="today" href="#/ricetta/' + r.id + '"><div class="em" aria-hidden="true">' + emojiFor(r.c) + '</div>' +
+      '<div><span class="lab">🌟 Ricetta del giorno</span><b>' + esc(r.t) + '</b><span class="meta">' + esc(r.c) + ' · ' +
+      plural(r.i.length, 'ingrediente', 'ingredienti') + '</span></div></a>';
+  }
+
+  function courseStats() {
+    var ix = state.index;
+    if (!ix.courseCounts) {
+      ix.courseCounts = {};
+      ix.recipes.forEach(function (x) { ix.courseCounts[x.r.c] = (ix.courseCounts[x.r.c] || 0) + 1; });
+    }
+    return ix.courseCounts;
+  }
+
+  // sfoglia le ricette per tipo di piatto, anche senza scegliere ingredienti
+  function courseTiles() {
+    var counts = courseStats();
+    var names = Object.keys(counts).filter(function (c) { return counts[c] >= 8; }).sort(function (a, b) {
+      return (a === 'Altro') - (b === 'Altro') || counts[b] - counts[a];
+    }).slice(0, 12);
+    if (!names.length) return '';
+    return '<div class="sec"><span>Sfoglia per piatto</span></div><div class="tiles">' + names.map(function (c) {
+      return '<a class="tile" style="--h:' + hueFor(c) + '" href="#/piatti/' + encodeURIComponent(c) + '"><span class="em2" aria-hidden="true">' +
+        emojiFor(c) + '</span><b>' + esc(c === 'Altro' ? 'Altre ricette' : c) + '</b><small>' + counts[c] + ' ricette</small></a>';
+    }).join('') + '</div>';
+  }
+
+  function viewCourse(course) {
+    var ix = state.index;
+    var list = ix.recipes.filter(function (x) { return x.r.c === course; }).sort(function (a, b) {
+      return a.r.t.localeCompare(b.r.t, 'it');
+    });
+    var h = '<div class="bar"><a class="ib" href="#/" aria-label="Indietro">←</a><h2>' + emojiFor(course) + ' ' +
+      esc(course === 'Altro' ? 'Altre ricette' : course) + '</h2></div><p class="sub" style="padding:0 18px">' +
+      plural(list.length, 'ricetta', 'ricette') + ', in ordine alfabetico</p>';
+    h += list.slice(0, state.shown).map(function (x) { return card(x.r, null); }).join('');
+    if (list.length > state.shown) {
+      h += '<button class="btn more" data-a="more">Mostra altre ricette (' + (list.length - state.shown) + ')</button>';
     }
     return h;
   }
@@ -212,6 +266,7 @@
       else if (selected.size && l.ids.some(function (i) { return D.isCore(ix, i, selected); })) cls = 'miss';
       return '<li' + (cls ? ' class="' + cls + '"' : '') + '>' + esc(l.text) + '</li>';
     }).join('');
+    var haveN = lines.filter(function (l) { return l.ids.some(function (i) { return selected.has(i); }); }).length;
     var steps = r.st.split('\n').filter(Boolean);
     var src = ix.data.sources[r.src] || {};
     var stepsHtml = src.passi === 'prosa'
@@ -222,7 +277,8 @@
       '<div class="cover" style="--h:' + hueFor(r.c) + '"><div class="big" aria-hidden="true">' + emojiFor(r.c) + '</div></div>' +
       '<article class="detail"><h2>' + esc(r.t) + '</h2><div class="tags"><span class="tag">' + esc(r.c) + '</span>' +
       (r.sv ? '<span class="tag">per ' + plural(r.sv, 'persona', 'persone') + '</span>' : '') +
-      '<span class="tag">' + plural(lines.length, 'ingrediente', 'ingredienti') + '</span></div>' +
+      '<span class="tag">' + plural(lines.length, 'ingrediente', 'ingredienti') + '</span>' +
+      (selected.size ? '<span class="tag hot">🎯 ne hai ' + haveN + ' su ' + lines.length + '</span>' : '') + '</div>' +
       '<div class="actions"><button class="btn pri" data-a="share" data-id="' + r.id + '">Condividi</button></div>' +
       '<h3>Ingredienti</h3>' + (selected.size ? '<p class="legend"><span class="have">✓ ce l’hai</span> · <span class="miss">+ ti manca</span></p>' : '') +
       '<ul class="ing">' + items + '</ul><h3>Procedimento</h3>' + stepsHtml +
@@ -270,6 +326,8 @@
     var h = location.hash.replace(/^#/, '') || '/';
     var m = h.match(/^\/ricetta\/(\d+)$/);
     if (m) return { name: 'dettaglio', id: parseInt(m[1], 10), nav: '' };
+    var mc = h.match(/^\/piatti\/(.+)$/);
+    if (mc) return { name: 'piatto', course: decodeURIComponent(mc[1]), nav: 'cerca' };
     if (h === '/risultati') return { name: 'risultati', nav: 'cerca' };
     if (h === '/preferiti') return { name: 'preferiti', nav: 'preferiti' };
     if (h === '/info') return { name: 'info', nav: 'info' };
@@ -281,6 +339,7 @@
     var y = keepScroll ? window.scrollY : 0, r = route(), h;
     if (r.name === 'risultati' && !state.sel.length) { location.replace('#/'); return; }
     if (r.name === 'risultati') h = viewResults();
+    else if (r.name === 'piatto') h = viewCourse(r.course);
     else if (r.name === 'preferiti') h = viewFavorites();
     else if (r.name === 'dettaglio') h = viewDetail(r.id);
     else if (r.name === 'info') h = viewInfo();
@@ -329,6 +388,7 @@
     switch (t.dataset.a) {
       case 'go': location.hash = '#/risultati'; break;
       case 'clear': state.sel = []; state.q = ''; save('sel', state.sel); render(true); break;
+      case 'clear-go': state.sel = []; state.q = ''; save('sel', state.sel); location.hash = '#/'; break;
       case 'expand': state.expanded[t.dataset.c] = !state.expanded[t.dataset.c]; render(true); break;
       case 'more': state.shown += PAGE; render(true); break;
       case 'share': share(parseInt(t.dataset.id, 10)); break;
