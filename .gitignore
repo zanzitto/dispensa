@@ -10,3 +10,6 @@ node_modules/
 # file temporanei di Python
 __pycache__/
 *.pyc
+
+# pagine generate (non si salvano: le crea GitHub a ogni pubblicazione)
+dist/

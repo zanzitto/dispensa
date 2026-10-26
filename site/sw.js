@@ -1,7 +1,7 @@
 /* Service worker: fa funzionare Dispensa anche senza connessione.
    Strategia: prima la copia salvata, poi aggiorna in background (stale-while-revalidate).
    Quando cambi i file del sito o i dati, aumenta VERSION per forzare l'aggiornamento. */
-const VERSION = 'dispensa-v3';
+const VERSION = 'dispensa-v4';
 const FILES = [
   './', 'index.html', 'css/style.css', 'js/search.js', 'js/app.js',
   'data/recipes.json', 'manifest.webmanifest', 'icon.svg', 'fonts/fredoka-latin.woff2'

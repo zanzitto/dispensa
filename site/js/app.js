@@ -304,6 +304,7 @@
     h += '</ul><p>Ogni ricetta rimanda alla pagina originale, dove si vede l’elenco degli autori. ' +
       'I testi di Wikibooks sono stati ripuliti e riorganizzati; restano sotto licenza CC BY-SA 4.0. ' +
       'Le ricette tradotte dall’inglese possono contenere errori di traduzione.</p>' +
+      '<h2>Tutte le ricette</h2><p><a href="ricette/">Sfoglia l’elenco completo delle ricette</a>.</p>' +
       '<h2>Privacy</h2><p>L’app non raccoglie dati personali. Preferiti e ingredienti scelti restano salvati solo sul tuo dispositivo.</p>' +
       (CFG.contactEmail ? '<h2>Contatti</h2><p><a href="mailto:' + esc(CFG.contactEmail) + '">' + esc(CFG.contactEmail) + '</a></p>' : '') +
       '<p class="meta">Versione dati: ' + esc(state.index.data.version) + '</p></div>';
