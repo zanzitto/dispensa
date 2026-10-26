@@ -15,7 +15,16 @@
   window.DISPENSA_CONFIG = {
     adsEnabled: false,     // metti true quando inserisci il codice pubblicitario in #ad-slot
     pageSize: 30,          // ricette mostrate per volta nei risultati
-    contactEmail: ''       // opzionale: mostrato nella pagina Info
+    contactEmail: '',      // opzionale: mostrato nella pagina Info
+    ads: {                 // annunci dell'app (Google AdMob); sul sito web restano spenti
+      enabled: false,      // metti true nell'app quando hai i codici AdMob qui sotto
+      testMode: true,      // lascia true finche' sviluppi: annunci di prova. Con i tuoi annunci veri NON cliccare mai!
+      units: {             // i tuoi codici AdMob (formato ca-app-pub-XXXXXXXXXXXXXXXX/NNNNNNNNNN)
+        android: { banner: '', interstitial: '', rewarded: '' },
+        ios: { banner: '', interstitial: '', rewarded: '' }
+      }
+      // limits: { minSecondsBetweenInterstitials: 240, recipesBeforeFirstInterstitial: 5, recipesBetweenInterstitials: 3, noAdsHours: 24 }
+    }
   };
 </script>
 </head>
@@ -28,6 +37,7 @@
 </nav>
 <noscript><div class="page"><h1>Dispensa – ricette dai tuoi ingredienti</h1><p>Scegli gli ingredienti che hai in casa e trova le ricette che puoi preparare. Questa app ha bisogno di JavaScript per la ricerca; puoi comunque <a href="ricette/">sfogliare tutte le ricette</a>.</p></div></noscript>
 <script src="js/search.js"></script>
+<script src="js/ads.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

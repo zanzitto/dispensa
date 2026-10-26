@@ -84,6 +84,21 @@
     search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'
   };
 
+  // annunci (attivi solo nell'app o in prova con ?demoads=1): vedi js/ads.js
+  var Ads = window.DispensaAds || null;
+  function adsButton() {
+    if (!Ads || !Ads.available()) return '';
+    return Ads.adsFree()
+      ? '<span class="tag hot">🚫 Senza annunci ancora ' + esc(Ads.remainingText()) + '</span>'
+      : '<button class="btn" data-a="noads">🚫 Niente annunci</button>';
+  }
+  function adsInfo() {
+    if (!Ads || !Ads.available()) return '';
+    return '<h2>Annunci</h2><p>Dispensa è gratis grazie alla pubblicità. ' + (Ads.adsFree()
+      ? 'Per ora non vedi annunci: ancora ' + esc(Ads.remainingText()) + '.</p>'
+      : 'Se ti danno fastidio, guarda un breve video e li togli per 24 ore.</p><p><button class="btn pri" data-a="noads">📺 Guarda un video, niente annunci per 24 ore</button></p>');
+  }
+
   function ingName(id) { var g = state.index.ingById.get(id); return g ? g.n : ''; }
   function isFav(id) { return state.fav.indexOf(id) >= 0; }
 
@@ -128,7 +143,7 @@
       '<div class="search">' + ICON.search + '<input id="q" type="search" placeholder="Cerca un ingrediente…" autocomplete="off" ' +
       'autocapitalize="none" enterkeyhint="search" aria-label="Cerca un ingrediente" value="' + esc(state.q) + '"></div>' +
       '<div class="chips" id="sug"></div>' +
-      '<div class="quick"><button class="btn" data-a="surprise">🎲 Sorprendimi</button></div>';
+      '<div class="quick"><button class="btn" data-a="surprise">🎲 Sorprendimi</button>' + adsButton() + '</div>';
     if (!sel.length) {
       h += '<div class="steps3"><div><b>🥕</b>Scegli cosa hai</div><div><b>🔍</b>Cerca le ricette</div><div><b>🍳</b>Cucina!</div></div>';
     }
@@ -304,8 +319,10 @@
     h += '</ul><p>Ogni ricetta rimanda alla pagina originale, dove si vede l’elenco degli autori. ' +
       'I testi di Wikibooks sono stati ripuliti e riorganizzati; restano sotto licenza CC BY-SA 4.0. ' +
       'Le ricette tradotte dall’inglese possono contenere errori di traduzione.</p>' +
+      adsInfo() +
       '<h2>Tutte le ricette</h2><p><a href="ricette/">Sfoglia l’elenco completo delle ricette</a>.</p>' +
-      '<h2>Privacy</h2><p>L’app non raccoglie dati personali. Preferiti e ingredienti scelti restano salvati solo sul tuo dispositivo.</p>' +
+      '<h2>Privacy</h2><p>Non ti chiediamo nessun account e non raccogliamo dati personali. Preferiti e ingredienti scelti restano salvati solo sul tuo dispositivo.' +
+      (Ads && Ads.available() ? ' Gli annunci sono forniti da Google AdMob, che può usare l’identificativo pubblicitario del dispositivo secondo le tue scelte di consenso.' : '') + '</p>' +
       (CFG.contactEmail ? '<h2>Contatti</h2><p><a href="mailto:' + esc(CFG.contactEmail) + '">' + esc(CFG.contactEmail) + '</a></p>' : '') +
       '<p class="meta">Versione dati: ' + esc(state.index.data.version) + '</p></div>';
     return h;
@@ -394,6 +411,9 @@
       case 'more': state.shown += PAGE; render(true); break;
       case 'share': share(parseInt(t.dataset.id, 10)); break;
       case 'surprise': surprise(); break;
+      case 'noads':
+        if (Ads && confirm('Guarda un breve video per togliere gli annunci per 24 ore?')) Ads.offerRemoval();
+        break;
       case 'back': if (history.length > 1) history.back(); else location.hash = '#/'; break;
     }
   });
@@ -406,7 +426,17 @@
       if (first) { toggleIngredient(first.id); render(true); var q = document.getElementById('q'); if (q) q.focus(); }
     }
   });
-  window.addEventListener('hashchange', function () { state.shown = PAGE; render(false); });
+  // gli annunci a schermo intero compaiono solo quando si ESCE da una ricetta, mai mentre la si legge
+  var prevRoute = null;
+  function trackRouteForAds() {
+    var r = route();
+    if (Ads) {
+      if (r.name === 'dettaglio') Ads.recipeOpened();
+      if (prevRoute === 'dettaglio' && r.name !== 'dettaglio') Ads.maybeInterstitial();
+    }
+    prevRoute = r.name;
+  }
+  window.addEventListener('hashchange', function () { state.shown = PAGE; render(false); trackRouteForAds(); });
 
   // ---------- avvio ----------
   function start() {
@@ -419,6 +449,11 @@
       state.sel = state.sel.filter(function (id) { return state.index.ingById.has(id); });
       state.fav = state.fav.filter(function (id) { return state.index.byId.has(id); });
       render(false);
+      trackRouteForAds();
+      if (Ads) {
+        Ads.onChange = function () { render(true); };
+        Ads.init();
+      }
     }).catch(function () {
       app.innerHTML = '<p class="loading">Non riesco a caricare le ricette.<br>' +
         '<button class="btn" onclick="location.reload()">Riprova</button></p>';
